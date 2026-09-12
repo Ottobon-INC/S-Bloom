@@ -91,10 +91,10 @@ export default function Footer({ onOpenGateway }) {
         {/* Giant Sculptural Wordmark (Wispr Flow / Linear style) */}
         <div className="footer-giant-wordmark">
           <div className="giant-brand-text">
-            S Bloom
+            sBloom
           </div>
           <div className="footer-copyright">
-            © 2026 S Bloom. An Ottobon Professional Services Venture. All rights reserved.
+            © 2026 sBloom. An Ottobon Professional Services Venture. All rights reserved.
           </div>
         </div>
 

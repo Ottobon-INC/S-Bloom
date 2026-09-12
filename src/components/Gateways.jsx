@@ -6,8 +6,7 @@ export default function Gateways({ onOpenGateway }) {
       id: 'creators',
       num: '01',
       className: 'card-creators',
-      iconClass: 'icon-purple',
-      iconEmoji: '🎨',
+      svgIcon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
       title: 'Creators & Artists',
       description: 'Build your identity, showcase your work, and grow your audience.',
       features: [
@@ -17,14 +16,13 @@ export default function Gateways({ onOpenGateway }) {
         'High-Retention Post-Production Desk'
       ],
       ctaText: 'Explore for Creators',
-      accentColor: '#8C52FF'
+      accentColor: '140, 82, 255'
     },
     {
       id: 'businesses',
       num: '02',
       className: 'card-businesses',
-      iconClass: 'icon-green',
-      iconEmoji: '💼',
+      svgIcon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
       title: 'Businesses',
       description: 'Build your brand, reach the right audience, and turn visibility into growth.',
       features: [
@@ -34,14 +32,13 @@ export default function Gateways({ onOpenGateway }) {
         'High-Intent Inbound Consultation Leads'
       ],
       ctaText: 'Explore for Businesses',
-      accentColor: '#073327'
+      accentColor: '56, 199, 147'
     },
     {
       id: 'institutions',
       num: '03',
       className: 'card-institutions',
-      iconClass: 'icon-blue',
-      iconEmoji: '🏛️',
+      svgIcon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="10" width="4" height="10" rx="1"/><rect x="10" y="10" width="4" height="10" rx="1"/><rect x="16" y="10" width="4" height="10" rx="1"/><path d="M2 22h20"/><path d="M12 2L2 8h20L12 2z"/></svg>,
       title: 'Institutions',
       description: 'Strengthen your digital presence, connect with your community, and expand your reach.',
       features: [
@@ -51,7 +48,7 @@ export default function Gateways({ onOpenGateway }) {
         'Specialized Education & Health Portals'
       ],
       ctaText: 'Explore for Institutions',
-      accentColor: '#1E5AA0',
+      accentColor: '59, 151, 250',
       externalLinks: [
         { label: '🎓 Education Portal', url: 'https://marketing.ottobon.in', host: 'marketing.ottobon.in ↗' },
         { label: '🏥 Healthcare Portal', url: 'https://marketing.medctech.com', host: 'marketing.medctech.com ↗' }
@@ -61,72 +58,106 @@ export default function Gateways({ onOpenGateway }) {
 
   return (
     <section className="gateways-wrapper" id="gateways">
-      <div className="container" style={{ textAlign: 'center' }}>
-        <span className="section-eyebrow">
-          ONE PLATFORM. THREE PATHS.
-        </span>
+      <div className="container">
+        <div className="gateways-header-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span className="section-eyebrow">
+            ONE PLATFORM. THREE PATHS.
+          </span>
 
-        <h2 className="font-serif section-title">
-          Three distinct gateways.<br />One unified growth platform.
-        </h2>
+          <h2 className="font-serif section-title">
+            Three distinct gateways.<br />One unified growth platform.
+          </h2>
 
-        <p className="section-desc">
-          One message does not fit all. Choose your dedicated gateway below to unlock tailored strategy, production, and distribution.
-        </p>
+          <p className="section-desc">
+            One message does not fit all. Choose your dedicated gateway below to unlock tailored strategy, production, and distribution.
+          </p>
+        </div>
 
         <div className="gateways-grid-main">
           {gateways.map((card) => (
-            <div key={card.id} className={`gateway-big-card ${card.className}`}>
-              {/* Top Number & Icon */}
-              <div className="gateway-top-meta">
-                <span className="gateway-num">{card.num}</span>
-                <div className={`gateway-icon-box ${card.iconClass}`}>
-                  <span>{card.iconEmoji}</span>
-                </div>
-              </div>
+            <div 
+              key={card.id} 
+              className={`gateway-card-premium ${card.className}`}
+              style={{ '--accent-rgb': card.accentColor, cursor: 'pointer' }}
+              onClick={() => onOpenGateway(card.id)}
+            >
+              <div className="gateway-card-flip-inner">
+                {/* FRONT FACE */}
+                <div className="gateway-card-front">
+                  <div className="gateway-card-glow"></div>
+                  <div className="gateway-card-inner">
+                    <div className="gateway-num-bg">{card.num}</div>
+                    
+                    <div className="gateway-top-meta">
+                      <div className="gateway-icon-box-premium">
+                        <div className="icon-halo"></div>
+                        <div className="icon-inner">{card.svgIcon}</div>
+                      </div>
+                    </div>
 
-              {/* Title & Short Description */}
-              <h3 className="gateway-card-title">{card.title}</h3>
-              <p className="gateway-card-desc">{card.description}</p>
+                    <h3 className="gateway-card-title">{card.title}</h3>
+                    <p className="gateway-card-desc">{card.description}</p>
 
-              {/* Feature List */}
-              <ul className="gateway-features-list">
-                {card.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="gateway-feature-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Action Buttons */}
-              <div className="gateway-card-actions">
-                <button 
-                  className="btn btn-primary"
-                  style={{ width: '100%' }}
-                  onClick={() => onOpenGateway(card.id)}
-                >
-                  {card.ctaText} &rarr;
-                </button>
-
-                {card.externalLinks && (
-                  <div className="portal-links-sub">
-                    {card.externalLinks.map((ext, eIdx) => (
-                      <a 
-                        key={eIdx} 
-                        href={ext.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="portal-link-btn"
-                      >
-                        <span>{ext.label}</span>
-                        <span style={{ color: 'var(--text-light)', fontSize: '0.72rem' }}>{ext.host}</span>
-                      </a>
-                    ))}
+                    <div className="gateway-flip-prompt">
+                      <span>Click or hover to explore</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </div>
                   </div>
-                )}
+                </div>
+
+                {/* BACK FACE */}
+                <div className="gateway-card-back">
+                  <div className="gateway-card-glow"></div>
+                  <div className="gateway-card-inner">
+                    <div className="gateway-num-bg">{card.num}</div>
+                    
+                    <h3 className="gateway-card-title" style={{ fontSize: '1.65rem', marginBottom: '20px' }}>{card.title}</h3>
+                    
+                    <ul className="gateway-features-list" style={{ flexGrow: 1, borderTop: 'none', paddingTop: 0 }}>
+                      {card.features.map((feature, fIdx) => (
+                        <li key={fIdx} className="gateway-feature-item">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="gateway-card-actions">
+                      <button 
+                        className="btn btn-primary"
+                        style={{ width: '100%' }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onOpenGateway(card.id);
+                        }}
+                      >
+                        {card.ctaText} &rarr;
+                      </button>
+
+                      {card.externalLinks && (
+                        <div className="portal-links-sub">
+                          {card.externalLinks.map((ext, eIdx) => (
+                            <a 
+                              key={eIdx} 
+                              href={ext.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="portal-link-btn"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <span>{ext.label}</span>
+                              <span className="portal-host">{ext.host}</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

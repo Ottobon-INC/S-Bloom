@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
-import EcosystemSection from './components/EcosystemSection.jsx';
+
 import TrustBar from './components/TrustBar.jsx';
 import CoreMessage from './components/CoreMessage.jsx';
 import Gateways from './components/Gateways.jsx';
@@ -184,22 +184,21 @@ export default function App() {
           onOpenAccelerator={openAcceleratorModal} 
         />
 
-        {/* 2. The sBloom Ecosystem (Dedicated 2nd Page Fold) */}
-        <EcosystemSection 
-          onOpenGateway={openGatewayModal} 
-        />
+        <hr style={{ border: 'none', borderTop: '1px solid var(--gold-border, rgba(255, 255, 255, 0.1))', margin: '0', opacity: 0.8 }} />
 
-        {/* 3. Trust / Social Proof Bar */}
-        <TrustBar />
-
-        {/* 4. Core Message (Dark Green Section) */}
-        <CoreMessage 
-          onOpenAccelerator={openAcceleratorModal} 
-        />
-
-        {/* 5. Three Gateways (Creators, Businesses, Institutions) */}
+        {/* 2. Three Gateways (Creators, Businesses, Institutions) */}
         <Gateways 
           onOpenGateway={openGatewayModal} 
+        />
+
+        <hr style={{ border: 'none', borderTop: '1px solid var(--gold-border, rgba(255, 255, 255, 0.1))', margin: '40px 0', opacity: 0.8 }} />
+
+        {/* 4. Trust / Social Proof Bar */}
+        <TrustBar />
+
+        {/* 5. Core Message (Dark Green Section) */}
+        <CoreMessage 
+          onOpenAccelerator={openAcceleratorModal} 
         />
 
         {/* 6. Full-Funnel Digital Presence Capabilities */}

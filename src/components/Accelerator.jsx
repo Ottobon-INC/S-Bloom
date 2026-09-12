@@ -26,9 +26,11 @@ export default function Accelerator({ onOpenAccelerator }) {
 
           <div className="accelerator-pillars-row">
             {pillars.map((pillar, idx) => (
-              <div key={idx} className="acc-pillar-pill">
-                <strong>{pillar.title}</strong>
-                <span>{pillar.desc}</span>
+              <div key={idx} className="acc-pillar-card group">
+                <div className="acc-pillar-inner">
+                  <strong className="acc-pillar-title">{pillar.title}</strong>
+                  <span className="acc-pillar-desc">{pillar.desc}</span>
+                </div>
               </div>
             ))}
           </div>

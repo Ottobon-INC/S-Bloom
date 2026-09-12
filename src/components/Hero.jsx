@@ -4,11 +4,15 @@ export default function Hero({ onOpenGateway, onOpenAccelerator }) {
   return (
     <section className="hero-clean-fold" id="hero">
       <div className="container hero-content-center">
-        {/* Eyebrow */}
-        <div className="hero-eyebrow">
-          <span className="hero-eyebrow-symbol">✦</span>
-          <span>CREATORS STUDIO &bull; RECORD &bull; EDIT &bull; GROW</span>
-          <span className="hero-eyebrow-symbol">✦</span>
+        {/* Eyebrow / Brand Pill */}
+        <div className="hub-center-badge hero-top-badge">
+          <img 
+            src="/sbloom-logo.jpeg" 
+            alt="sBloom" 
+            className="hub-mini-logo" 
+          />
+          <span className="dot-live"></span>
+          <span>sBloom &bull; CREATORS STUDIO &bull; RECORD &bull; EDIT &bull; GROW</span>
         </div>
 
         {/* Main Headline */}
@@ -55,18 +59,18 @@ export default function Hero({ onOpenGateway, onOpenAccelerator }) {
           </button>
           
           <a 
-            href="#ecosystem-section"
+            href="#gateways"
             className="btn btn-secondary"
             style={{ padding: '13px 28px', fontSize: '0.96rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
           >
-            <span>Explore the Platform</span>
+            <span>Explore Gateways</span>
           </a>
         </div>
 
         {/* Scroll Down Guide */}
         <div className="hero-scroll-indicator">
-          <a href="#ecosystem-section" className="scroll-down-link">
-            <span>Explore the Ecosystem</span>
+          <a href="#gateways" className="scroll-down-link">
+            <span>Explore the Gateways</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>

@@ -28,64 +28,65 @@ export default function Navbar({ onOpenGateway, onOpenAccelerator }) {
               <span className="brand-subname">CREATORS STUDIO</span>
             </div>
           </a>
-          <span className="brand-by-badge">by Ottobon</span>
+          <span className="brand-by-badge">by Ottobon Prof Svc</span>
         </div>
 
-        {/* Navigation Menu */}
-        <ul className="nav-menu">
-          <li>
-            <a 
-              href="#gateways" 
-              className="nav-item-link" 
-              onClick={(e) => { e.preventDefault(); onOpenGateway('creators'); }}
-            >
-              For Creators
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#gateways" 
-              className="nav-item-link" 
-              onClick={(e) => { e.preventDefault(); onOpenGateway('businesses'); }}
-            >
-              For Businesses
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#gateways" 
-              className="nav-item-link" 
-              onClick={(e) => { e.preventDefault(); onOpenGateway('institutions'); }}
-            >
-              For Institutions
-            </a>
-          </li>
-          <li>
-            <a href="#capabilities" className="nav-item-link">Services</a>
-          </li>
-          <li>
-            <a href="#engine" className="nav-item-link">About</a>
-          </li>
-          <li>
-            <a href="#contact" className="nav-item-link">Contact</a>
-          </li>
-        </ul>
+        {/* Navigation & Actions Right Group */}
+        <div className="navbar-right">
+          <ul className="nav-menu">
+            <li>
+              <a 
+                href="#gateways" 
+                className="nav-item-link" 
+                onClick={(e) => { e.preventDefault(); onOpenGateway('creators'); }}
+              >
+                For Creators
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#gateways" 
+                className="nav-item-link" 
+                onClick={(e) => { e.preventDefault(); onOpenGateway('businesses'); }}
+              >
+                For Businesses
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#gateways" 
+                className="nav-item-link" 
+                onClick={(e) => { e.preventDefault(); onOpenGateway('institutions'); }}
+              >
+                For Institutions
+              </a>
+            </li>
+            <li>
+              <a href="#capabilities" className="nav-item-link">Services</a>
+            </li>
+            <li>
+              <a href="#engine" className="nav-item-link">About</a>
+            </li>
+            <li>
+              <a href="#contact" className="nav-item-link">Contact</a>
+            </li>
+          </ul>
 
-        {/* Right Actions */}
-        <div className="nav-actions">
-          <a 
-            href="#gateways"
-            className="btn btn-secondary btn-sm"
-            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
-          >
-            Explore Gateways
-          </a>
-          <button 
-            className="btn btn-primary btn-sm"
-            onClick={onOpenAccelerator}
-          >
-            Start Blooming
-          </button>
+          <div className="nav-actions">
+            <a 
+              href="#gateways"
+              className="btn btn-secondary btn-sm"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
+            >
+              Explore Gateways
+            </a>
+            <button 
+              className="btn btn-primary btn-sm"
+              onClick={onOpenAccelerator}
+            >
+              Start Blooming
+            </button>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
