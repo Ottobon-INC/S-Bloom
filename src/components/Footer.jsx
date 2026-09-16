@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer({ onOpenGateway }) {
   return (
-    <footer className="sbloom-footer">
+    <footer className="sbloom-footer" id="contact">
       <div className="container">
         <div className="footer-main-grid">
           
@@ -69,7 +69,7 @@ export default function Footer({ onOpenGateway }) {
           <div className="footer-links-col">
             <h4 className="footer-col-title">Company</h4>
             <ul className="footer-links-list">
-              <li><a href="#engine">About Ottobon</a></li>
+              <li><a href="#about">About Ottobon</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="#careers">Careers</a></li>
               <li><a href="#testimonials">Case Studies</a></li>

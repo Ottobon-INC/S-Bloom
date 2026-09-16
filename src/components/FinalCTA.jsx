@@ -8,11 +8,11 @@ export default function FinalCTA({ onOpenAccelerator }) {
           <div className="cta-aurora-bg"></div>
           
           <div className="final-cta-inner">
-            <span className="section-eyebrow" style={{ marginBottom: '18px' }}>
-              The Digital Growth Platform
+            <span className="final-cta-eyebrow">
+              THE DIGITAL GROWTH PLATFORM
             </span>
 
-            <h2 className="font-serif final-cta-heading">
+            <h2 className="final-cta-heading">
               Whoever you are,<br /><em>S Bloom helps you bloom.</em>
             </h2>
 
@@ -22,22 +22,17 @@ export default function FinalCTA({ onOpenAccelerator }) {
 
             <div className="final-cta-buttons">
               <button 
-                className="btn btn-primary cta-btn-glow"
-                style={{ padding: '16px 36px', fontSize: '1.05rem' }}
+                className="btn-cta-gold"
                 onClick={onOpenAccelerator}
               >
-                <div className="btn-shine"></div>
-                <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  Start Blooming
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <span>Start Blooming</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </button>
 
               <button 
-                className="btn btn-secondary cta-btn-outline"
-                style={{ padding: '16px 36px', fontSize: '1.05rem' }}
+                className="btn-cta-dark"
                 onClick={() => {
                   const el = document.getElementById('gateways');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });

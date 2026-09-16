@@ -62,13 +62,19 @@ export default function Navbar({ onOpenGateway, onOpenAccelerator }) {
               </a>
             </li>
             <li>
+              <a href="#hero" className="nav-item-link">Home</a>
+            </li>
+            <li>
               <a href="#capabilities" className="nav-item-link">Services</a>
             </li>
             <li>
-              <a href="#engine" className="nav-item-link">About</a>
+              <a href="#engine" className="nav-item-link">How It Works</a>
             </li>
             <li>
-              <a href="#contact" className="nav-item-link">Contact</a>
+              <a href="#accelerator" className="nav-item-link">Program</a>
+            </li>
+            <li>
+              <a href="#testimonials" className="nav-item-link">Reviews</a>
             </li>
           </ul>
 
@@ -111,9 +117,11 @@ export default function Navbar({ onOpenGateway, onOpenAccelerator }) {
           <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('creators'); }}>For Creators</a>
           <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('businesses'); }}>For Businesses</a>
           <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('institutions'); }}>For Institutions</a>
+          <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Home</a>
           <a href="#capabilities" onClick={() => setMobileMenuOpen(false)}>Services</a>
-          <a href="#engine" onClick={() => setMobileMenuOpen(false)}>About Engine</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+          <a href="#engine" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
+          <a href="#accelerator" onClick={() => setMobileMenuOpen(false)}>Program</a>
+          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Reviews</a>
           <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
             <button className="btn btn-secondary btn-sm" style={{ flex: 1 }} onClick={() => { setMobileMenuOpen(false); onOpenGateway('creators'); }}>
               Explore Gateways

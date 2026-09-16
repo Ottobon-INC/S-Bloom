@@ -16,7 +16,7 @@ export default function Gateways({ onOpenGateway }) {
         'High-Retention Post-Production Desk'
       ],
       ctaText: 'Explore for Creators',
-      accentColor: '140, 82, 255'
+      accentColor: '247, 245, 240'
     },
     {
       id: 'businesses',
