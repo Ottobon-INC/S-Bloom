@@ -478,18 +478,161 @@
   position: relative;
 }
 
+/* Viewfinder Mode Switcher Bar */
+.cr-visual-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cr-visual-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #EAE6DC;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid var(--cr-border-strong);
+}
+
+.cr-visual-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  font-family: var(--cr-font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cr-text-muted);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cr-visual-tab:hover {
+  color: var(--cr-text-black);
+}
+
+.cr-visual-tab.active {
+  background: #0D0E10;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(15, 17, 19, 0.12);
+}
+
+.cr-tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(15, 17, 19, 0.25);
+  transition: background-color 0.2s ease;
+}
+
+.cr-visual-tab.active .cr-tab-dot {
+  background: #FF7043;
+  box-shadow: 0 0 6px rgba(255, 112, 67, 0.8);
+}
+
+.cr-visual-tab:last-child.active .cr-tab-dot {
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+}
+
+.cr-visual-telemetry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cr-text-muted);
+  background: #FAF8F2;
+  border: 1px solid var(--cr-border);
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+.cr-live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: recBlink 1.6s infinite;
+}
+
 .cr-cinema-frame {
   position: relative;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   background: #080A0C;
   border: 1px solid var(--cr-border-strong);
-  box-shadow: 0 28px 60px rgba(15, 17, 19, 0.16);
+  box-shadow: 0 28px 60px rgba(15, 17, 19, 0.16), 0 0 45px rgba(220, 160, 120, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cr-cinema-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 490px;
+  overflow: hidden;
+  background: #080A0C;
+  cursor: pointer;
+}
+
+.cr-cinema-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: contrast(1.02) brightness(0.98);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cr-cinema-frame:hover .cr-cinema-video {
+  transform: scale(1.015);
+}
+
+.cr-cinema-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 4;
+  transition: opacity 0.2s ease;
+}
+
+.cr-play-icon-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0D0E10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding-left: 3px;
+  transition: transform 0.2s ease;
+}
+
+.cr-cinema-media-wrapper:hover .cr-play-icon-badge {
+  transform: scale(1.08);
 }
 
 .cr-cinema-img {
   width: 100%;
-  height: 520px;
+  height: 490px;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -499,6 +642,38 @@
 
 .cr-cinema-frame:hover .cr-cinema-img {
   transform: scale(1.02);
+}
+
+/* Viewfinder Controls & Telemetry */
+.cr-viewfinder-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cr-vf-ctrl-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(13, 14, 16, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-family: var(--cr-font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cr-vf-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 /* Viewfinder Overlay Telemetry */

@@ -1,7 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CreatorsHero({ onOpenAccelerator }) {
+  const [activeMode, setActiveMode] = useState('3d'); // '3d' or 'stage'
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [timecode, setTimecode] = useState('00:00:04:12');
+  const videoRef = useRef(null);
+
+  // Timecode counter for video playback
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const t = videoRef.current.currentTime;
+    const mins = Math.floor(t / 60).toString().padStart(2, '0');
+    const secs = Math.floor(t % 60).toString().padStart(2, '0');
+    const frames = Math.floor((t % 1) * 24).toString().padStart(2, '0');
+    setTimecode(`00:${mins}:${secs}:${frames}`);
+  };
+
+  const toggleSound = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const nextMuted = !isMuted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+    if (!nextMuted && videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeMode === '3d' && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    } else if (activeMode === 'stage') {
+      setTimecode('00:14:28:12');
+    }
+  }, [activeMode]);
+
   return (
     <section className="cr-hero-section" id="hero">
       <div className="creators-container">
@@ -98,21 +146,83 @@ export default function CreatorsHero({ onOpenAccelerator }) {
             </div>
           </div>
 
-          {/* Right Column: Cinema Soundstage Viewfinder Frame (Matching "Voice & Stage" Content) */}
+          {/* Right Column: Cinema Soundstage Viewfinder Frame with 3D Studio & Live Stage Switcher */}
           <div className="cr-hero-visual-col">
+            
+            {/* Viewfinder Mode Switcher Bar */}
+            <div className="cr-visual-tabs-bar">
+              <div className="cr-visual-tabs">
+                <button 
+                  type="button" 
+                  className={`cr-visual-tab ${activeMode === '3d' ? 'active' : ''}`}
+                  onClick={() => setActiveMode('3d')}
+                >
+                  <span className="cr-tab-dot"></span>
+                  <span>3D Studio Suite</span>
+                </button>
+                <button 
+                  type="button" 
+                  className={`cr-visual-tab ${activeMode === 'stage' ? 'active' : ''}`}
+                  onClick={() => setActiveMode('stage')}
+                >
+                  <span className="cr-tab-dot"></span>
+                  <span>Live Soundstage</span>
+                </button>
+              </div>
+
+              <div className="cr-visual-telemetry-pill">
+                <span className="cr-live-pulse-dot"></span>
+                <span>{activeMode === '3d' ? '3D WORKSPACE' : 'STAGE 01'}</span>
+              </div>
+            </div>
+
+            {/* Main Cinema Soundstage Frame */}
             <div className="cr-cinema-frame">
               
               {/* Top Viewfinder Telemetry */}
               <div className="cr-viewfinder-top">
                 <div className="cr-rec-indicator">
                   <span className="cr-rec-dot"></span>
-                  <span className="cr-rec-text">REC &bull; 4K DCI</span>
+                  <span className="cr-rec-text">
+                    {activeMode === '3d' ? 'RENDER • 60 FPS' : 'REC • 4K DCI'}
+                  </span>
                 </div>
+
                 <div className="cr-viewfinder-timecode">
-                  00:14:28:12
+                  {timecode}
                 </div>
-                <div className="cr-fps-tag">
-                  24 FPS
+
+                <div className="cr-viewfinder-controls">
+                  {activeMode === '3d' && (
+                    <button 
+                      type="button" 
+                      className="cr-vf-ctrl-btn"
+                      onClick={toggleSound}
+                      title={isMuted ? "Turn Sound On" : "Mute Sound"}
+                    >
+                      {isMuted ? (
+                        <>
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <line x1="23" y1="9" x2="17" y2="15" />
+                            <line x1="17" y1="9" x2="23" y2="15" />
+                          </svg>
+                          <span>MUTE</span>
+                        </>
+                      ) : (
+                        <>
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                          </svg>
+                          <span>SOUND ON</span>
+                        </>
+                      )}
+                    </button>
+                  )}
+                  <div className="cr-fps-tag">
+                    {activeMode === '3d' ? 'DCI 4K' : '24 FPS'}
+                  </div>
                 </div>
               </div>
 
@@ -122,28 +232,66 @@ export default function CreatorsHero({ onOpenAccelerator }) {
               <div className="cr-bracket cr-bracket-bl"></div>
               <div className="cr-bracket cr-bracket-br"></div>
 
-              {/* Indian Creator Image: Voice, Mic & Soundstage */}
-              <img 
-                src="/creator-hero.jpg" 
-                alt="Indian Artist Speaking into Studio Microphone on Soundstage - Your Talent, Your Voice, Your Stage" 
-                className="cr-cinema-img"
-              />
+              {/* Media Container: 3D Video or Indian Creator Image */}
+              {activeMode === '3d' ? (
+                <div 
+                  className="cr-cinema-media-wrapper" 
+                  onClick={togglePlay}
+                  title="Click to Play / Pause"
+                >
+                  <video 
+                    ref={videoRef}
+                    src="/creator-new-video.mp4" 
+                    autoPlay
+                    loop
+                    muted={isMuted}
+                    playsInline
+                    className="cr-cinema-video"
+                    onTimeUpdate={handleTimeUpdate}
+                  />
+                  {!isPlaying && (
+                    <div className="cr-cinema-play-overlay">
+                      <div className="cr-play-icon-badge">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="cr-cinema-media-wrapper">
+                  <img 
+                    src="/creator-hero.jpg" 
+                    alt="Indian Artist Speaking into Studio Microphone on Soundstage - Your Talent, Your Voice, Your Stage" 
+                    className="cr-cinema-img"
+                  />
+                </div>
+              )}
 
               {/* Bottom Viewfinder Info Strip */}
               <div className="cr-viewfinder-bottom">
                 <div className="cr-vf-meta-left">
-                  <span className="cr-vf-label">AUDIO IN:</span>
-                  <span className="cr-vf-val">48kHz &bull; Studio Vocal Master</span>
+                  <span className="cr-vf-label">
+                    {activeMode === '3d' ? 'PIPELINE:' : 'AUDIO IN:'}
+                  </span>
+                  <span className="cr-vf-val">
+                    {activeMode === '3d' 
+                      ? 'CUT → STORY → AUDIO → COLOR → FINAL' 
+                      : '48kHz • Studio Vocal Master'}
+                  </span>
                 </div>
                 <div className="cr-vf-meta-right">
-                  <span className="cr-vf-badge">SOUNDSTAGE 01</span>
+                  <span className="cr-vf-badge">
+                    {activeMode === '3d' ? 'sBLOOM 3D ENGINE' : 'STAGE 01'}
+                  </span>
                 </div>
               </div>
+
             </div>
           </div>
 
         </div>
-
 
       </div>
     </section>

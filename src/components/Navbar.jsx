@@ -54,9 +54,8 @@ export default function Navbar({ onOpenGateway, onOpenAccelerator }) {
             </li>
             <li>
               <a 
-                href="#gateways" 
-                className="nav-item-link" 
-                onClick={(e) => { e.preventDefault(); onOpenGateway('institutions'); }}
+                href="https://marketing.ottobon.in/" 
+                className="nav-item-link"
               >
                 For Institutions
               </a>
@@ -116,7 +115,7 @@ export default function Navbar({ onOpenGateway, onOpenAccelerator }) {
         <div className="mobile-nav-dropdown">
           <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('creators'); }}>For Creators</a>
           <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('businesses'); }}>For Businesses</a>
-          <a href="#gateways" onClick={() => { setMobileMenuOpen(false); onOpenGateway('institutions'); }}>For Institutions</a>
+          <a href="https://marketing.ottobon.in/" onClick={() => setMobileMenuOpen(false)}>For Institutions</a>
           <a href="#hero" onClick={() => setMobileMenuOpen(false)}>Home</a>
           <a href="#capabilities" onClick={() => setMobileMenuOpen(false)}>Services</a>
           <a href="#engine" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
