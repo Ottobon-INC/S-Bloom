@@ -33,8 +33,8 @@ The platform offers a full-funnel operating model summarized by its core ethos:
 > *"You Create. We Handle the Rest."*  
 > *"Stop burning out trying to be a videographer, audio engineer, editor, and algorithm analyst all at once."*
 
-### 1.2 The Three Audience Segments (The Gateways)
-The codebase is architected around three specific high-value customer funnels:
+### 1.2 The Four Audience Segments (The Gateways)
+The codebase is architected around four specific high-value customer funnels:
 
 1. **Creators & Artists (Individual Talent):**
    - *Target:* Actors, dancers, singers, visual artists, digital influencers, and creative entrepreneurs.
@@ -42,11 +42,16 @@ The codebase is architected around three specific high-value customer funnels:
    - *Dedicated Route:* `/creators` (or `#/creators`).
 
 2. **Business Professionals (Independent Practices):**
-   - *Target:* Healthcare specialists (surgeons, doctors, clinic owners), legal advisors, chartered accountants, and independent executive coaches.
+   - *Target:* Healthcare specialists (surgeons, doctors, clinic owners), legal advisors, and chartered accountants.
    - *Offering:* The "2-Hour Monthly Batching Shoot" (120 minutes of recording yields 24–30 published assets/month), ethical thought leadership, and Google Business Profile (GBP) regional dominance to drive inbound consultations.
    - *Funnel Mechanism:* Interactive Gateway Modal on the main page.
 
-3. **Institutions & Campuses (Enterprise & Groups):**
+3. **Consultants & Advisors (Strategy & Leadership):**
+   - *Target:* Management consultants, fractional executives, strategy advisors, and executive coaches.
+   - *Offering:* Executive thought leadership positioning, framework/IP visual architecture, high-ticket inbound client acquisition funnels, and LinkedIn/keynote authority syndication.
+   - *Funnel Mechanism:* Interactive Gateway Modal on the main page.
+
+4. **Institutions & Campuses (Enterprise & Groups):**
    - *Target:* Hospitals, healthcare systems, colleges, private schools, and training institutes.
    - *Offering:* Multi-staff/faculty brand uniformity, regional reputation architecture, multi-campus local SEO, and student/patient intake portals.
    - *Funnel Mechanism:* Interactive Gateway Modal with outbound connections to specialized portals (`marketing.ottobon.in` and `marketing.medctech.com`).
@@ -109,6 +114,8 @@ d:/Ottobon/sBloom new/S-Bloom/
 ├── vite.config.js                            # Vite dev server & allowedHosts configuration
 ├── README.md                                 # Quickstart developer instructions
 ├── CONTEXT_HANDOVER.md                       # THIS MASTER DOCUMENT
+├── CREATORS_LANDING_PAGE_OVERVIEW.md         # Mentor-Ready Creators Landing Page Overview & Strategy Document
+├── SBLOOM_MAIN_LANDING_PAGE_BUSINESS_OVERVIEW.md # Mentor-Ready Main Landing Page Business Overview & Strategy Document
 ├── sBloom_Landing_Page_Documentation.md      # Legacy technical documentation
 ├── creator 3d video.mp4                      # Raw master video asset (source copy)
 ├── WhatsApp Image 2026-09-10 at 5.50.46 PM.jpeg # Source brand logo asset
@@ -141,6 +148,7 @@ d:/Ottobon/sBloom new/S-Bloom/
         ├── Navbar.jsx                        # Global floating navigation for Main Ecosystem
         ├── Hero.jsx                          # Main fold headline, dynamic badge, feature chips
         ├── Gateways.jsx                      # 3D interactive flip cards for the 3 Gateways
+        ├── Offerings.jsx                     # Section 3: Official services (GBP & SEO, Blogs & Content, Meta Ads)
         ├── TrustBar.jsx                      # Trust metrics & enterprise credentials
         ├── CoreMessage.jsx                   # Dark green high-contrast metrics section
         ├── Capabilities.jsx                  # 4-Stage full-funnel digital presence services
@@ -371,6 +379,19 @@ stateDiagram-v2
 - **Role:** Dual-mode modal overlay supporting gateway roadmaps and cohort applications.
 - **Form State:** `formData: { name, email, category, handle }`, `formSubmitted: boolean`.
 
+### 7.8 `src/components/Offerings.jsx`
+- **Role:** Section 03 "Our Offerings" placed directly below Gateways, showcasing sBloom's 3 official services:
+  1. **Website, GBP & SEO (Digital Presence & Growth):** Google Maps 3-pack dominance, local/technical SEO, and high-conversion business websites.
+  2. **Blogs & Content Creation (Social Media & Content Growth):** Multi-platform social media management, short-form reels/shorts, long-form editorial blogs, and the 6-stage compounding growth flywheel (`Define Strategy -> Create Content -> Publish Consistently -> Engage & Build -> Generate Leads -> Analyze & Optimize`).
+  3. **Meta Ads & Paid Promotion (Performance Marketing):** Laser-targeted Meta advertising, Google Search/PMax ads, influencer matchmaking, and next-gen AI creators.
+- **State Properties:**
+  - `activeTab`: `'all' | 'organic' | 'social' | 'paid'` (Filter pills for service focusing).
+  - `expandedCard`: `string | null` (Toggles per-card accordion between core capabilities and full 6-point deliverable checklist).
+- **Features & Interactive Systems:**
+  - Ambient radial glows, 3D hover elevation, frosted glass backdrop blur, and custom SVG icons.
+  - Compounding audience flywheel interactive pipeline diagram.
+  - Direct connection to `onOpenAccelerator` modal from all cards and the bottom syndicate banner.
+
 ---
 
 ## 8. Asset Directory & Media Inventory
@@ -479,6 +500,18 @@ Because this app uses browser History API routing for `/creators`:
 | **2026-09-16** | Antigravity AI | `src/components/creators/*`, `src/creators.css`, `src/App.jsx` | Developed dedicated `/creators` editorial landing page with scroll sync, operating model, and infrastructure sections. |
 | **2026-09-17** | Antigravity AI | `src/components/creators/CreatorsHero.jsx`, `src/creators.css` | Integrated dual-mode media switcher (3D video player with timecode HUD & sound toggle vs. soundstage photography). |
 | **2026-09-17** | Antigravity AI | `CONTEXT_HANDOVER.md` | Created Master Context Handover document covering complete codebase, user flows, and maintenance protocol. |
+| **2026-09-17** | Antigravity AI | `src/components/Offerings.jsx`, `src/style.css`, `src/App.jsx`, `src/components/Navbar.jsx` | Developed and refined "Our Offerings" section below Section 2 (Gateways). Redesigned into 3 clean, highly scannable cards communicating GBP & SEO, Blogs & Content Creation (with Growth Flow), and Meta Ads & Paid Acquisition with zero cognitive friction. |
+| **2026-09-17** | Antigravity AI | `CREATORS_LANDING_PAGE_OVERVIEW.md`, `CONTEXT_HANDOVER.md` | Created comprehensive mentor-ready documentation for the Creators Studio Landing Page detailing core messaging, audience psychology, section breakdown, and presentation guide. |
+| **2026-09-17** | Antigravity AI | `src/components/Gateways.jsx`, `src/App.jsx`, `src/style.css`, `src/components/Navbar.jsx`, `src/components/Footer.jsx`, `CONTEXT_HANDOVER.md` | Added dedicated "Consultants" card (03) to Section 2 (Gateways) with full 3D flip card animation, halo icon, gold luxury accent, and modal roadmap. Updated section copy to "ONE PLATFORM. FOUR PATHS." and "Four distinct gateways". Updated navbar and footer navigation links. |
+| **2026-09-17** | Antigravity AI | `src/App.jsx`, `src/style.css`, `src/components/Offerings.jsx` | Removed duplicate `<hr>` tags between sections to eliminate double dividing lines. Standardized section divisions to a single clean luxury gold border. Removed dotted background behind offering images in favor of atmospheric ambient lighting stage. |
+| **2026-09-18** | Antigravity AI | `src/components/Gateways.jsx`, `src/style.css`, `CONTEXT_HANDOVER.md` | Removed education and healthcare portal buttons from Institutions card back to eliminate uneven clutter. Minimized all 4 gateway cards to a sleek, compact 380px height with refined inner padding, smaller number watermarks (5.2rem), tighter typography, and streamlined CTA buttons for a harmonious 4-column layout. |
+| **2026-09-18** | Antigravity AI | `src/components/Offerings.jsx`, `CONTEXT_HANDOVER.md` | Removed "SECTION 3 •" from the top eyebrow pill in the Our Offerings section, standardizing it to a clean, focused "OUR OFFERINGS" badge with glowing pulse dot. |
+| **2026-09-18** | Antigravity AI | `SBLOOM_MAIN_LANDING_PAGE_BUSINESS_OVERVIEW.md`, `CONTEXT_HANDOVER.md` | Authored comprehensive, mentor-ready business overview and product strategy documentation for the main landing page (`/`). Covers executive summary, 4-gateways segmentation, 10-section breakdown, unit economics, tech stack, and mentor Q&A defense. |
+| **2026-09-18** | Antigravity AI | `src/components/Gateways.jsx`, `src/components/Navbar.jsx`, `CONTEXT_HANDOVER.md` | Renamed Card 02 from "Businesses" to "Business Professionals" on both front and back flip faces to match the platform's professional practice positioning (Doctors, Lawyers, Advisors). Updated desktop dropdown and mobile menu items accordingly. |
+| **2026-09-18** | Antigravity AI | `src/components/Gateways.jsx`, `src/components/Navbar.jsx`, `src/components/Footer.jsx`, `src/App.jsx`, `CONTEXT_HANDOVER.md` | Swapped positions of Card 3 and Card 4: Institutions is now Card `03` (Electric Blue `#3B97FA`) and Consultants is Card `04` (Gold `#D4AF37`). Updated sequence numbers, navbar consolidated dropdown, and footer platform links accordingly. |
+| **2026-09-18** | Antigravity AI | `src/components/Gateways.jsx`, `src/App.jsx`, `src/components/Navbar.jsx`, `CONTEXT_HANDOVER.md` | Renamed Card 01 from "Creators & Artists" to "Creators & Influencers" on both front and back flip faces to broaden resonance across social content talent and digital creators. Synchronized modal title and navbar dropdown items accordingly. |
+| **2026-09-18** | Antigravity AI | `src/components/Offerings.jsx`, `src/style.css`, `CONTEXT_HANDOVER.md` | Updated category badge names on the 3 Our Offerings cards: Card 01 to "Digital Presence & Growth", Card 02 to "Social Media & Content Growth", and Card 03 to "Performance Marketing". Added `white-space: nowrap` to `.stack-category-chip` to ensure pill badges stay on a single line. |
+
 
 ---
 *End of Master Context Handover Document. For further questions or escalations, contact the Ottobon Engineering Lead.*

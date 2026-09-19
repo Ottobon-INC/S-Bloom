@@ -49,6 +49,11 @@ export default function Footer({ onOpenGateway }) {
                   Institutions
                 </a>
               </li>
+              <li>
+                <a href="#gateways" onClick={(e) => { e.preventDefault(); onOpenGateway('consultants'); }}>
+                  Consultants
+                </a>
+              </li>
               <li><a href="#accelerator">Accelerator</a></li>
             </ul>
           </div>

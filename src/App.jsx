@@ -4,6 +4,7 @@ import Hero from './components/Hero.jsx';
 import TrustBar from './components/TrustBar.jsx';
 import CoreMessage from './components/CoreMessage.jsx';
 import Gateways from './components/Gateways.jsx';
+import Offerings from './components/Offerings.jsx';
 import Capabilities from './components/Capabilities.jsx';
 import ProductionEngine from './components/ProductionEngine.jsx';
 import Accelerator from './components/Accelerator.jsx';
@@ -17,7 +18,7 @@ const gatewayData = {
   creators: {
     tag: 'Individual Talent',
     tagClass: 'tag-purple',
-    title: 'Creators & Artists Gateway',
+    title: 'Creators & Influencers Gateway',
     description: 'Transform your passion, personal identity, and performance talent into an authoritative digital presence with a rapidly compounding audience.',
     hook: 'Stop struggling alone. Master the camera, scale your audience, and let us handle your post-production as you grow.',
     pillars: [
@@ -65,6 +66,31 @@ const gatewayData = {
       {
         title: 'Inbound Consultation Funneling',
         desc: 'Direct integration with WhatsApp business, appointment booking links, and consultation intake forms.'
+      }
+    ]
+  },
+  consultants: {
+    tag: 'Advisory & Strategy',
+    tagClass: 'tag-gold',
+    title: 'Consultants & Advisors Gateway',
+    description: 'Designed specifically for Strategy Consultants, Fractional Executives, Management Advisors, and Executive Coaches looking to convert intellectual capital into high-ticket inbound engagements.',
+    hook: 'Turn your strategic frameworks into commanding thought leadership that attracts premium retained engagements.',
+    pillars: [
+      {
+        title: 'Pillar 1: Framework & IP Visual Architecture',
+        desc: 'Translate proprietary methodologies and consulting frameworks into high-retention video breakdowns and digestible visual models that command instant domain authority.'
+      },
+      {
+        title: 'Pillar 2: Executive Presence & Keynote Delivery',
+        desc: 'Command the camera with ease. Teleprompter direction, eye-line coaching, and authentic delivery tailored for C-suite decision makers.'
+      },
+      {
+        title: 'Pillar 3: High-Ticket Inbound Client Funnel',
+        desc: 'Conversion paths directing enterprise leaders and founders straight into executive briefings, discovery calls, and retained advisory proposals.'
+      },
+      {
+        title: 'Pillar 4: LinkedIn & CXO Authority Syndication',
+        desc: 'Systematic multi-channel syndication across LinkedIn, YouTube, and executive editorial columns to capture enterprise CXO attention.'
       }
     ]
   },
@@ -242,12 +268,15 @@ export default function App() {
 
             <hr style={{ border: 'none', borderTop: '1px solid var(--gold-border, rgba(255, 255, 255, 0.1))', margin: '0', opacity: 0.8 }} />
 
-            {/* 2. Three Gateways (Creators, Businesses, Institutions) */}
+            {/* 2. Four Gateways (Creators, Business Professionals, Institutions, Consultants) */}
             <Gateways 
               onOpenGateway={openGatewayModal} 
             />
 
-            <hr style={{ border: 'none', borderTop: '1px solid var(--gold-border, rgba(255, 255, 255, 0.1))', margin: '40px 0', opacity: 0.8 }} />
+            {/* 3. Our Offerings (Official Services: GBP & SEO, Blogs & Content, Meta Ads) */}
+            <Offerings 
+              onOpenAccelerator={openAcceleratorModal} 
+            />
 
             {/* 4. Trust / Social Proof Bar */}
             <TrustBar />
