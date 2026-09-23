@@ -107,6 +107,50 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             <p className="hero-description" style={{ margin: '0 auto 28px', fontSize: '1.08rem', maxWidth: '640px', lineHeight: 1.6 }}>
               A structured, three-stage growth engine designed for experts and institutions in Healthcare, Education, and Consulting.
             </p>
+            {/* 3-Step Connected Framework Cards */}
+            <div className="framework-hero-row" style={{ marginBottom: '32px' }}>
+              <a href="#build" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 01</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--bg-lavender)', color: 'var(--color-indigo)' }}>
+                    <Sparkles size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">BUILD</h4>
+                <p className="framework-hero-card-sub">Web, SEO & Digital Foundation</p>
+              </a>
+
+              <div className="framework-hero-arrow" aria-hidden="true">
+                <ArrowRight size={20} />
+              </div>
+
+              <a href="#create" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 02</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-coral)' }}>
+                    <Camera size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">CREATE</h4>
+                <p className="framework-hero-card-sub">Studio Media, Video & Editorial</p>
+              </a>
+
+              <div className="framework-hero-arrow" aria-hidden="true">
+                <ArrowRight size={20} />
+              </div>
+
+              <a href="#promote" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 03</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--accent-pale-blue)', color: 'var(--color-indigo)' }}>
+                    <TrendingUp size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">PROMOTE</h4>
+                <p className="framework-hero-card-sub">Meta Ads, Google Ads & Collabs</p>
+              </a>
+            </div>
+
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
               <GenerateButton
                 onClick={() => onOpenConsultation()}
@@ -211,10 +255,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <section className="section bg-peach-section">
         <div className="container">
           <div className="section-header-centered">
-            <span className="eyebrow">TAILORED TO YOUR INDUSTRY</span>
-            <h2 style={{ fontSize: '2.4rem' }}>Content That Fits Your Industry.</h2>
+            <h2 style={{ fontSize: '2.4rem' }}>How We Apply Services by Industry</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              We help experts and organizations turn their knowledge, services, and expertise into content that connects with the right audience.
+              How Build, Create, and Promote adapt directly to your field — clear, proven, and compliant.
             </p>
           </div>
 
@@ -222,20 +265,36 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             {INDUSTRY_APPLICATIONS.map((item) => (
               <div key={item.id} className="industry-apply-card">
                 <div>
-                  <span className="pill-badge" style={{ marginBottom: '14px' }}>{ind.title}</span>
-                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--color-indigo)', marginBottom: '10px' }}>
-                    {ind.cardHeadline || ind.tagline}
-                  </h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                    {ind.cardDescription || ind.landingDescription}
-                  </p>
+                  <div className="industry-apply-top">
+                    <div
+                      className="industry-apply-icon"
+                      style={{ backgroundColor: item.iconBg, color: item.iconColor }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div className="industry-apply-meta">
+                      <h3 className="industry-apply-title">{item.title}</h3>
+                      <span className="industry-apply-audience">{item.audience}</span>
+                    </div>
+                  </div>
+
+                  <p className="industry-apply-desc">{item.simpleDescription}</p>
+
+                  <ul className="industry-apply-step-list">
+                    {item.deliverables.map((d) => (
+                      <li key={d.stage} className="industry-apply-step-item">
+                        <CheckCircle2 size={17} color="var(--color-coral)" style={{ flexShrink: 0 }} />
+                        <span><strong>{d.stage}:</strong> {d.item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <Link
                   to={`/industries/${item.id}`}
                   className="btn btn-outline industry-apply-btn"
                 >
-                  <span>Explore {ind.title}</span>
+                  <span>Explore {item.title} Pathway</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
