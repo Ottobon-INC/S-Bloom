@@ -45,29 +45,31 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-dialog consultation-dialog" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={onClose} aria-label="Close dialog">
-          <X size={22} />
+          <X size={20} />
         </button>
 
         {isSubmitted ? (
-          <div style={{ textAlign: 'center', padding: '30px 10px' }}>
+          <div style={{ textAlign: 'center', padding: '24px 10px' }}>
             <div style={{
-              width: '64px',
-              height: '64px',
+              width: '56px',
+              height: '56px',
               borderRadius: '50%',
               backgroundColor: 'var(--accent-coral-light)',
               color: 'var(--accent-coral)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 20px'
+              margin: '0 auto 16px'
             }}>
-              <CheckCircle2 size={36} />
+              <CheckCircle2 size={32} />
             </div>
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '12px' }}>Tailored Strategy Request Received</h3>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '28px', lineHeight: 1.6 }}>
-              Thank you, <strong>{fullName}</strong>. Our {industry} strategy team will review your practice profile and prepare an initial growth architecture within 24 business hours.
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '8px', color: 'var(--color-indigo)' }}>
+              Request Received
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: 1.5, fontSize: '0.92rem' }}>
+              Thank you, <strong>{fullName}</strong>. Our {industry} strategy team will review your profile and connect within 24 business hours.
             </p>
             <button onClick={onClose} className="btn btn-indigo" style={{ width: '100%' }}>
               <span>Done</span>
@@ -75,18 +77,20 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
         ) : (
           <>
-            <div style={{ marginBottom: '24px' }}>
-              <span className="eyebrow">TAILORED STRATEGY INITIATION</span>
-              <h3 style={{ fontSize: '1.9rem', fontWeight: 500, marginBottom: '8px' }}>
+            <div className="modal-header-compact">
+              <span className="eyebrow" style={{ fontSize: '0.75rem', marginBottom: '2px' }}>
+                TAILORED STRATEGY
+              </span>
+              <h3 style={{ fontSize: '1.45rem', fontWeight: 600, color: 'var(--color-indigo)', margin: '2px 0 4px' }}>
                 Let's Build Your Growth Plan
               </h3>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
-                Share your background and our industry directors will blueprint a bespoke content and growth strategy.
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.4 }}>
+                Share your details and our team will craft a tailored content & growth blueprint.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <form onSubmit={handleSubmit} className="modal-form-compact">
+              <div className="modal-grid-2">
                 <div>
                   <label className="modal-label">Your Industry</label>
                   <select
@@ -113,35 +117,37 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 </div>
               </div>
 
-              <div className="modal-form-group">
-                <label className="modal-label">Full Name</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g., Dr. Marcus Vance / Elena Rostova"
-                  className="modal-input"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                />
+              <div className="modal-grid-2">
+                <div>
+                  <label className="modal-label">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g., Dr. Marcus Vance"
+                    className="modal-input"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label className="modal-label">Work Email</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="name@organization.com"
+                    className="modal-input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
               </div>
 
               <div className="modal-form-group">
-                <label className="modal-label">Work Email</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="name@organization.com"
-                  className="modal-input"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div className="modal-form-group">
-                <label className="modal-label">Practice / Organization Name</label>
+                <label className="modal-label">Practice / Organization</label>
                 <input
                   type="text"
-                  placeholder="e.g., Vanguard Health Clinic / Apex Advisory"
+                  placeholder="e.g., Vanguard Health Clinic"
                   className="modal-input"
                   value={organization}
                   onChange={(e) => setOrganization(e.target.value)}
@@ -151,15 +157,16 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div className="modal-form-group">
                 <label className="modal-label">Key Growth Objective</label>
                 <textarea
-                  rows={3}
-                  placeholder="Tell us what you would like to achieve (e.g., patient education video series, physician authority, recruitment)..."
+                  rows={2}
+                  placeholder="What would you like to achieve (e.g., patient trust, video series, new clients)?"
                   className="modal-textarea"
                   value={goals}
                   onChange={(e) => setGoals(e.target.value)}
+                  style={{ minHeight: '52px', resize: 'vertical' }}
                 />
               </div>
 
-              <button type="submit" className="btn btn-indigo" style={{ width: '100%', marginTop: '10px' }}>
+              <button type="submit" className="btn btn-indigo" style={{ width: '100%', padding: '11px 20px', marginTop: '4px' }}>
                 <span>Submit Strategy Request</span>
                 <ArrowRight size={16} />
               </button>

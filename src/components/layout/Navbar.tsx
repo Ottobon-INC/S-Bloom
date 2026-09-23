@@ -274,11 +274,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
         <div className="container nav-container">
           {/* Logo */}
           <Link to="/" className="brand-logo-wrap" aria-label="sBLOOM Home" onClick={() => handleLinkClick('/')}>
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2C16 10 9 16 2 16C9 16 16 22 16 30C16 22 23 16 30 16C23 16 16 10 16 2Z" fill="#E74736"/>
-              <path d="M22 6C22 12 18 16 14 16C18 16 22 20 22 26C22 20 26 16 30 16C26 16 22 12 22 6Z" fill="#C7B4EA" opacity="0.9"/>
-            </svg>
-            <span>sBLOOM</span>
+            <img
+              src="/sbloom-logo.png"
+              alt="sBLOOM"
+              className="brand-logo-img"
+            />
           </Link>
 
           {/* Desktop Navigation Links with Dropdown Panels */}

@@ -651,7 +651,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
                 /* Digital Issued Creative Pass (Success State) */
                 <div className="issued-pass-card">
                   <div className="issued-pass-stamp">
-                    <CheckCircle2 size={32} color="#E74736" />
+                    <CheckCircle2 size={32} color="var(--ws-indigo-primary)" />
                     <span>APPLICATION RECEIVED · QUEUE ACTIVE</span>
                   </div>
                   <h3 className="issued-pass-name">{formData.fullName}</h3>
@@ -698,7 +698,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
         .creative-workspace-page {
           --ws-bg-primary: var(--bg-primary, #F7F3F4);
           --ws-indigo-primary: var(--indigo-primary, #211D50);
-          --ws-coral-accent: var(--coral-accent, #E74736);
+          --ws-coral-accent: var(--color-indigo, #211D50);
           --ws-lavender-soft: var(--lavender-soft, #E9E1F3);
           --ws-peach-soft: var(--peach-soft, #FCE9E2);
           --ws-text-secondary: var(--text-secondary, #66647C);
@@ -710,7 +710,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
           min-height: 100vh;
           background-color: var(--ws-bg-primary);
-          margin-top: calc(-1 * var(--ws-header-height));
+          margin-top: 0;
           font-family: 'Inter', -apple-system, sans-serif;
           color: var(--ws-indigo-primary);
           box-sizing: border-box;
@@ -844,23 +844,25 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
         .workspace-hero-center-section {
           position: relative;
           width: 100%;
-          min-height: 100vh;
+          min-height: calc(100vh - 68px);
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: calc(var(--ws-header-height) + 40px) 24px 40px 24px;
+          padding: 36px 24px 44px 24px;
           margin-bottom: 0;
           overflow: hidden;
           background-color: #0c0a17;
+          border: none;
+          border-bottom: none;
         }
 
         .workspace-bg-video-container {
           position: absolute;
-          inset: 0;
+          inset: 0 0 -2px 0;
           width: 100%;
-          height: 100%;
+          height: calc(100% + 2px);
           overflow: hidden;
           z-index: 0;
           pointer-events: none;
@@ -869,9 +871,9 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
         .workspace-bg-video {
           position: absolute;
-          inset: 0;
+          inset: 0 0 -2px 0;
           width: 100%;
-          height: 100%;
+          height: calc(100% + 2px);
           object-fit: cover;
           object-position: center center;
           z-index: 1;
@@ -881,9 +883,9 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
         .workspace-bg-fallback-poster {
           position: absolute;
-          inset: 0;
+          inset: 0 0 -2px 0;
           width: 100%;
-          height: 100%;
+          height: calc(100% + 2px);
           background-size: cover;
           background-position: center center;
           opacity: 0.65;
@@ -893,14 +895,14 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
         .workspace-bg-video-scrim {
           position: absolute;
-          inset: 0;
+          inset: 0 0 -2px 0;
           background: radial-gradient(circle at 50% 50%, rgba(12, 10, 23, 0.18) 0%, rgba(12, 10, 23, 0.45) 60%, rgba(12, 10, 23, 0.8) 100%);
           z-index: 2;
         }
 
         .workspace-hero-top-nav {
           position: absolute;
-          top: calc(var(--ws-header-height) + 16px);
+          top: 18px;
           left: 50%;
           transform: translateX(-50%);
           width: 100%;
@@ -1445,16 +1447,16 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
         .role-card:hover {
           transform: translateY(-8px) scale(1.02);
-          border-color: rgba(231, 71, 54, 0.45);
+          border-color: rgba(33, 29, 80, 0.28);
           box-shadow: 0 20px 36px -10px rgba(33, 29, 80, 0.12),
-                      0 0 24px rgba(231, 71, 54, 0.12);
+                      0 0 24px rgba(33, 29, 80, 0.06);
         }
 
         .role-card.role-card-selected {
-          border-color: var(--ws-coral-accent);
-          box-shadow: 0 16px 36px -8px rgba(231, 71, 54, 0.25),
-                      0 0 0 2px var(--ws-coral-accent);
-          background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F7 100%);
+          border-color: var(--ws-indigo-primary);
+          box-shadow: 0 16px 36px -8px rgba(33, 29, 80, 0.2),
+                      0 0 0 2px var(--ws-indigo-primary);
+          background: linear-gradient(180deg, #FFFFFF 0%, #FAF8FC 100%);
         }
 
         .role-card-shimmer {
@@ -1714,15 +1716,15 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
         }
 
         .craft-chip:hover {
-          border-color: rgba(231, 71, 54, 0.4);
+          border-color: rgba(33, 29, 80, 0.3);
           transform: translateY(-2px);
           background-color: #FFFFFF;
         }
 
         .craft-chip-active {
           background-color: #FFFFFF;
-          border-color: var(--ws-coral-accent);
-          box-shadow: 0 6px 16px rgba(231, 71, 54, 0.15), 0 0 0 1.5px var(--ws-coral-accent);
+          border-color: var(--ws-indigo-primary);
+          box-shadow: 0 6px 16px rgba(33, 29, 80, 0.12), 0 0 0 1.5px var(--ws-indigo-primary);
           transform: translateY(-2px);
         }
 
@@ -1796,8 +1798,8 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
         }
 
         .pass-input:focus {
-          border-color: var(--ws-coral-accent);
-          box-shadow: 0 0 0 3px rgba(231, 71, 54, 0.12);
+          border-color: var(--ws-indigo-primary);
+          box-shadow: 0 0 0 3px rgba(33, 29, 80, 0.1);
         }
 
         .portfolio-label-row {
@@ -1907,13 +1909,14 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           border-radius: 9999px;
           font-size: 0.92rem;
           font-weight: 700;
-          box-shadow: 0 8px 20px rgba(231, 71, 54, 0.25);
+          box-shadow: 0 8px 20px rgba(33, 29, 80, 0.25);
           transition: all 0.25s ease;
         }
 
         .pass-submit-btn:hover {
+          background-color: #17133B;
           transform: translateY(-2px);
-          box-shadow: 0 12px 28px rgba(231, 71, 54, 0.35);
+          box-shadow: 0 12px 28px rgba(33, 29, 80, 0.35);
         }
 
         .issued-pass-card {
@@ -1931,8 +1934,8 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           font-size: 0.82rem;
           font-weight: 700;
           letter-spacing: 0.1em;
-          color: var(--ws-coral-accent);
-          background: rgba(231, 71, 54, 0.08);
+          color: var(--ws-indigo-primary);
+          background: rgba(33, 29, 80, 0.08);
           padding: 6px 16px;
           border-radius: 9999px;
           margin-bottom: 20px;

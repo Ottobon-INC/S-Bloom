@@ -134,7 +134,7 @@ export const IndustryLandingPage: React.FC = () => {
               </div>
               <h3 className="entity-choice-title">I'm an Expert</h3>
               <p className="entity-choice-desc">
-                Build your professional presence, establish definitive authority, and share your specialized expertise with the world.
+                Build your presence, establish authority, and share your expertise.
               </p>
               <div className="btn-circle btn-circle-indigo">
                 <ArrowRight size={20} />
@@ -152,7 +152,7 @@ export const IndustryLandingPage: React.FC = () => {
               </div>
               <h3 className="entity-choice-title">We're an Institution</h3>
               <p className="entity-choice-desc">
-                Showcase your facilities, scale multi-department capabilities, strengthen team credentials, and drive organizational acquisition.
+                Showcase your facilities, highlight your team, and grow your organization.
               </p>
               <div className="btn-circle btn-circle-indigo">
                 <ArrowRight size={20} />
