@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   ArrowRight,
+  ArrowDown,
   Film,
   Video,
   Palette,
   PenTool,
   Clapperboard,
   FileCheck,
+  FileText,
+  ClipboardList,
   Laptop,
   Rocket,
   CheckCircle2,
@@ -55,14 +58,7 @@ const InnerPageNav: React.FC<InnerPageNavProps> = ({
       aria-label="Breadcrumb and Page Navigation"
       className={`standalone-inner-nav standalone-inner-nav-${variant} ${className}`}
     >
-      <Link
-        to={backTo}
-        className="standalone-back-link"
-        aria-label={`Go back to ${backLabel}`}
-      >
-        <ArrowLeft size={16} aria-hidden="true" />
-        <span>Back to {backLabel}</span>
-      </Link>
+
 
       {breadcrumbs && breadcrumbs.length > 0 ? (
         <ol className="standalone-breadcrumb-list">
@@ -163,36 +159,41 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
       id: 'editors',
       title: 'Video Editors',
       icon: <Film size={24} />,
-      tagline: 'Short-form reels, pacing & sound design',
-      skills: ['Reels', 'Color', 'Audio']
+      imgSrc: '/images/roles/role_video_editor.jpg',
+      tagline: 'Edit videos into engaging content for digital platforms.',
+      skills: ['Short-form videos', 'Reels', 'Sound & color']
     },
     {
       id: 'videographers',
       title: 'Videographers',
       icon: <Video size={24} />,
-      tagline: 'Cinematic on-site filming & lighting',
-      skills: ['4K Camera', 'Lighting', 'Audio']
+      imgSrc: '/images/roles/role_videographer.jpg',
+      tagline: 'Film professional videos, interviews, and on-site content.',
+      skills: ['Video shooting', 'Camera work', 'Lighting']
     },
     {
       id: 'designers',
       title: 'Designers',
       icon: <Palette size={24} />,
-      tagline: 'High-converting carousels & brand assets',
-      skills: ['Carousels', 'Thumbnails', 'Branding']
+      imgSrc: '/images/roles/role_designer.jpg',
+      tagline: 'Create visual content that helps brands communicate clearly.',
+      skills: ['Social media graphics', 'Thumbnails', 'Branding']
     },
     {
       id: 'writers',
       title: 'Content Writers',
       icon: <PenTool size={24} />,
-      tagline: 'Clear scripts, thought leadership & blogs',
-      skills: ['Scripts', 'Articles', 'Research']
+      imgSrc: '/images/roles/role_content_writer.jpg',
+      tagline: 'Turn ideas and expertise into clear, engaging written content.',
+      skills: ['Scripts', 'Articles', 'Blogs', 'Research']
     },
     {
-      id: 'executives',
-      title: 'Creative Executives',
+      id: 'directors',
+      title: 'Creative Directors',
       icon: <Clapperboard size={24} />,
-      tagline: 'Storyboards, creative directing & QA',
-      skills: ['Storyboards', 'Direction', 'QA']
+      imgSrc: '/images/roles/role_creative_director.jpg',
+      tagline: 'Help shape creative ideas and guide projects from concept to execution.',
+      skills: ['Storyboards', 'Creative direction', 'Quality checks']
     }
   ];
 
@@ -274,7 +275,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           </p>
 
           <div className="workspace-cta-row">
-            <a href="#apply" className="btn btn-indigo btn-lg">
+            <a href="#apply" className="btn ws-primary-btn btn-lg">
               Apply to the Partner Workspace <ArrowRight size={16} />
             </a>
             <a href="#how-it-works" className="btn btn-secondary-glass btn-lg">
@@ -295,62 +296,148 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
       {/* Main Container */}
       <div className="container">
-        {/* 2.0 How It Works / Workflow (Full View Height) */}
+        {/* 2.0 How It Works / Redesigned Workflow Section */}
         <section id="workflow" className="how-it-works-section" aria-labelledby="how-it-works-title">
           <div id="how-it-works" style={{ position: 'relative', top: '-80px' }} />
-          <div className="section-head">
+          
+          {/* Section Header */}
+          <div className="section-head workflow-section-head">
             <span className="section-tag">THE WORKFLOW</span>
-            <h2 id="how-it-works-title" className="section-title">How It Works</h2>
+            <h2 id="how-it-works-title" className="section-title">
+              You Focus on the Work. We Handle the Rest.
+            </h2>
             <p className="section-sub">
-              A transparent, friction-free division of labor designed to let you do your best creative work.
+              We bring the clients, prepare the briefs, and manage delivery. You focus on creating great work, from wherever you are.
             </p>
           </div>
 
-          <div className="grid-3">
-            {/* Step 01 */}
-            <div className="simple-card step-card">
-              <div className="step-card-header">
-                <span className="step-num">01</span>
-                <span className="step-actor">sBLOOM</span>
-              </div>
-              <div className="step-icon-wrap">
-                <FileCheck size={26} color="#211D50" />
-              </div>
-              <h3 className="step-title">Client & Brief Preparation</h3>
-              <p className="step-desc">
-                We secure the client and prepare the brief, script or blog topic.
-              </p>
-            </div>
+          {/* 3-Step Progression Grid with Visual Connectors */}
+          <div className="workflow-grid-wrapper">
+            <div className="workflow-grid">
+              {/* Step 01 — S-Bloom */}
+              <div className="simple-card step-card step-card-sbloom">
+                <div className="step-card-top-bar" />
+                <div className="step-card-header">
+                  <div className="step-num-wrap">
+                    <span className="step-num">01</span>
+                    <span className="step-phase-label">INITIATION</span>
+                  </div>
+                  <span className="step-actor sbloom-actor">S-BLOOM</span>
+                </div>
 
-            {/* Step 02 */}
-            <div className="simple-card step-card">
-              <div className="step-card-header">
-                <span className="step-num">02</span>
-                <span className="step-actor partner-actor">PARTNER</span>
-              </div>
-              <div className="step-icon-wrap">
-                <Laptop size={26} color="#E74736" />
-              </div>
-              <h3 className="step-title">Technical Execution</h3>
-              <p className="step-desc">
-                You bring the technical work — editing, shooting or design from wherever you are.
-              </p>
-            </div>
+                <div className="step-icon-wrap sbloom-icon-wrap">
+                  <ClipboardList size={26} strokeWidth={2} />
+                </div>
 
-            {/* Step 03 */}
-            <div className="simple-card step-card">
-              <div className="step-card-header">
-                <span className="step-num">03</span>
-                <span className="step-actor">sBLOOM</span>
+                <h3 className="step-title">We Bring the Client &amp; Prepare the Brief</h3>
+                <p className="step-desc">
+                  We find the clients and provide you with the project brief, script, or blog topic, so you know exactly what needs to be done.
+                </p>
+
+                <div className="step-responsibility-tag">
+                  <span className="responsibility-dot dot-sbloom" />
+                  <span>Handled by S-Bloom</span>
+                </div>
               </div>
-              <div className="step-icon-wrap">
-                <Rocket size={26} color="#211D50" />
+
+              {/* Connector 1 -> 2 (Desktop) */}
+              <div className="step-connector desktop-connector" aria-hidden="true">
+                <div className="connector-line" />
+                <div className="connector-circle">
+                  <ArrowRight size={15} />
+                </div>
+                <div className="connector-line" />
               </div>
-              <h3 className="step-title">Deployment & Management</h3>
-              <p className="step-desc">
-                We handle deployment, management and client relationships.
+
+              {/* Connector 1 -> 2 (Mobile) */}
+              <div className="step-connector mobile-connector" aria-hidden="true">
+                <div className="connector-arrow-down">
+                  <ArrowDown size={18} />
+                </div>
+              </div>
+
+              {/* Step 02 — Partner (Prominent Core Focus) */}
+              <div className="simple-card step-card step-card-partner">
+                <div className="step-card-top-bar partner-top-bar" />
+                <div className="step-card-header">
+                  <div className="step-num-wrap">
+                    <span className="step-num partner-num">02</span>
+                    <span className="step-phase-label partner-phase">EXECUTION</span>
+                  </div>
+                  <span className="step-actor partner-actor">PARTNER</span>
+                </div>
+
+                <div className="step-icon-wrap partner-icon-wrap">
+                  <Laptop size={26} strokeWidth={2} />
+                </div>
+
+                <h3 className="step-title">You Create the Work</h3>
+                <p className="step-desc">
+                  Choose a project that fits your skills and handle the creative or technical work, whether it’s video editing, shooting, or design.
+                </p>
+
+                <div className="step-responsibility-tag partner-tag">
+                  <span className="responsibility-dot dot-partner" />
+                  <span>Your Core Focus</span>
+                </div>
+              </div>
+
+              {/* Connector 2 -> 3 (Desktop) */}
+              <div className="step-connector desktop-connector" aria-hidden="true">
+                <div className="connector-line" />
+                <div className="connector-circle">
+                  <ArrowRight size={15} />
+                </div>
+                <div className="connector-line" />
+              </div>
+
+              {/* Connector 2 -> 3 (Mobile) */}
+              <div className="step-connector mobile-connector" aria-hidden="true">
+                <div className="connector-arrow-down">
+                  <ArrowDown size={18} />
+                </div>
+              </div>
+
+              {/* Step 03 — S-Bloom */}
+              <div className="simple-card step-card step-card-sbloom">
+                <div className="step-card-top-bar" />
+                <div className="step-card-header">
+                  <div className="step-num-wrap">
+                    <span className="step-num">03</span>
+                    <span className="step-phase-label">COMPLETION</span>
+                  </div>
+                  <span className="step-actor sbloom-actor">S-BLOOM</span>
+                </div>
+
+                <div className="step-icon-wrap sbloom-icon-wrap">
+                  <Rocket size={26} strokeWidth={2} />
+                </div>
+
+                <h3 className="step-title">We Handle Delivery &amp; Client Management</h3>
+                <p className="step-desc">
+                  We take care of final delivery, client communication, and ad management, so you can focus on your craft.
+                </p>
+
+                <div className="step-responsibility-tag">
+                  <span className="responsibility-dot dot-sbloom" />
+                  <span>Handled by S-Bloom</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action Banner Below Cards */}
+          <div className="workflow-cta-card">
+            <div className="workflow-cta-content">
+              <h3 className="workflow-cta-title">Ready to Work With Us?</h3>
+              <p className="workflow-cta-sub">
+                Join our network of creative and technical professionals and put your skills to work on real projects.
               </p>
             </div>
+            <a href="#apply" className="btn ws-primary-btn btn-lg workflow-cta-btn">
+              <span>Apply to the Partner Workspace</span>
+              <ArrowRight size={18} />
+            </a>
           </div>
         </section>
 
@@ -358,9 +445,9 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
         <section id="roles" className="who-can-join-section" aria-labelledby="who-can-join-title">
           <div className="section-head">
             <span className="section-tag">ROSTER CATEGORIES</span>
-            <h2 id="who-can-join-title" className="section-title">Who Can Join?</h2>
+            <h2 id="who-can-join-title" className="section-title">Find Your Role. Do Your Best Work.</h2>
             <p className="section-sub">
-              We recruit specialists across video, writing, motion, and design. Select your craft to apply.
+              Choose the role that matches your skills and experience. Work on creative projects with briefs and direction from S-Bloom.
             </p>
           </div>
 
@@ -383,11 +470,12 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
                   aria-pressed={isSelected}
                 >
                   <div className="role-card-shimmer"></div>
-                  <div className="role-icon-box">
-                    <span className="role-icon-inner">{role.icon}</span>
+                  <div className="role-image-wrapper">
+                    <img src={role.imgSrc} alt={role.title} className="role-hero-image" />
                   </div>
-
-                  <h3 className="role-title">{role.title}</h3>
+                  
+                  <div className="role-card-content">
+                    <h3 className="role-title">{role.title}</h3>
                   <p className="role-tagline">{role.tagline}</p>
 
                   <div className="role-skills-wrap">
@@ -403,6 +491,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
                       {isSelected ? 'Selected ✓' : 'Select Role'}
                     </span>
                     <ArrowRight size={13} className="role-action-arrow" />
+                  </div>
                   </div>
                 </div>
               );
@@ -552,7 +641,7 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
                   {/* Submit Action */}
                   <div className="pass-submit-row">
-                    <button type="submit" className="btn btn-indigo btn-lg pass-submit-btn">
+                    <button type="submit" className="btn ws-primary-btn btn-lg pass-submit-btn">
                       <span>Submit Application</span>
                       <ArrowRight size={16} />
                     </button>
@@ -707,13 +796,14 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .creative-workspace-page .btn-indigo {
+        .creative-workspace-page .ws-primary-btn {
           background-color: var(--ws-coral-accent);
           color: #FFFFFF;
           box-shadow: 0 8px 20px rgba(231, 71, 54, 0.28);
+          border: none;
         }
 
-        .creative-workspace-page .btn-indigo:hover {
+        .creative-workspace-page .ws-primary-btn:hover {
           background-color: #D63A2A;
           transform: translateY(-2px);
           box-shadow: 0 12px 28px rgba(231, 71, 54, 0.38);
@@ -969,79 +1059,355 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           font-size: 1.1rem;
         }
 
-        /* 2.0 How It Works (Full View Height) */
+        /* 2.0 How It Works / Redesigned Workflow Section */
         .how-it-works-section {
-          min-height: calc(100vh - var(--ws-header-height));
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 40px 0;
+          padding: 84px 0 76px 0;
           margin-bottom: 0;
           scroll-margin-top: var(--ws-header-height);
         }
 
+        .workflow-section-head {
+          text-align: center;
+          max-width: 780px;
+          margin: 0 auto 52px auto;
+        }
+
+        .workflow-section-head .section-title {
+          font-size: clamp(2.1rem, 3.5vw, 2.9rem);
+          line-height: 1.2;
+          margin-bottom: 16px;
+        }
+
+        .workflow-section-head .section-sub {
+          font-size: 1.12rem;
+          line-height: 1.6;
+          max-width: 660px;
+          margin: 0 auto;
+        }
+
+        /* 3-Step Progression Grid with Connectors */
+        .workflow-grid-wrapper {
+          position: relative;
+          width: 100%;
+        }
+
+        .workflow-grid {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr auto 1fr;
+          align-items: stretch;
+          gap: 0;
+        }
+
         .step-card {
-          padding: 28px 24px;
+          padding: 34px 28px 28px 28px;
           display: flex;
           flex-direction: column;
           background-color: #FFFFFF;
-          border-radius: 18px;
+          border-radius: 20px;
           border: 1px solid var(--ws-border-card);
+          box-shadow: 0 4px 20px rgba(33, 29, 80, 0.04);
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                      border-color 0.35s ease;
+        }
+
+        .step-card-top-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, transparent, #8B70C9, transparent);
+          opacity: 0.6;
+          transition: opacity 0.3s ease;
+        }
+
+        .step-card-sbloom:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 36px rgba(33, 29, 80, 0.09);
+          border-color: rgba(139, 112, 201, 0.45);
+        }
+
+        .step-card-sbloom:hover .step-card-top-bar {
+          opacity: 1;
+        }
+
+        /* Step 02: Partner (Prominent Core Focus) */
+        .step-card-partner {
+          border: 1.5px solid rgba(231, 71, 54, 0.28);
+          background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFC 100%);
+          box-shadow: 0 8px 30px rgba(231, 71, 54, 0.07), 0 2px 8px rgba(33, 29, 80, 0.04);
+        }
+
+        .partner-top-bar {
+          background: linear-gradient(90deg, #F09C7D, #E74736, #F09C7D);
+          opacity: 0.95;
+          height: 4px;
+        }
+
+        .step-card-partner:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 44px rgba(231, 71, 54, 0.16), 0 4px 12px rgba(33, 29, 80, 0.06);
+          border-color: rgba(231, 71, 54, 0.6);
         }
 
         .step-card-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
+        }
+
+        .step-num-wrap {
+          display: flex;
+          align-items: baseline;
+          gap: 8px;
         }
 
         .step-num {
           font-family: var(--ws-font-heading);
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: var(--ws-coral-accent);
+          font-size: 1.25rem;
+          font-weight: 800;
+          color: #8B70C9;
+          letter-spacing: -0.02em;
+        }
+
+        .partner-num {
+          color: #E74736;
+        }
+
+        .step-phase-label {
+          font-size: 0.7rem;
+          font-weight: 800;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--ws-text-secondary);
+          opacity: 0.75;
+        }
+
+        .partner-phase {
+          color: #E74736;
+          opacity: 0.85;
         }
 
         .step-actor {
-          font-size: 0.76rem;
-          font-weight: 700;
+          font-size: 0.75rem;
+          font-weight: 800;
           letter-spacing: 0.08em;
           text-transform: uppercase;
+          padding: 5px 12px;
+          border-radius: 9999px;
+        }
+
+        .sbloom-actor {
           background-color: var(--ws-lavender-soft);
           color: var(--ws-indigo-primary);
-          padding: 4px 10px;
-          border-radius: 9999px;
-          border: 1px solid var(--ws-border-light);
+          border: 1px solid rgba(139, 112, 201, 0.22);
         }
 
         .partner-actor {
           background-color: var(--ws-peach-soft);
-          color: #67351F;
+          color: #B03423;
+          border: 1px solid rgba(231, 71, 54, 0.25);
         }
 
         .step-icon-wrap {
-          width: 48px;
-          height: 48px;
+          width: 52px;
+          height: 52px;
           border-radius: 14px;
-          background-color: var(--ws-lavender-soft);
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        .sbloom-icon-wrap {
+          background-color: var(--ws-lavender-soft);
+          color: var(--ws-indigo-primary);
+        }
+
+        .partner-icon-wrap {
+          background-color: var(--ws-peach-soft);
+          color: #E74736;
+        }
+
+        .step-card:hover .step-icon-wrap {
+          transform: scale(1.1) rotate(3deg);
+        }
+
+        .step-card-sbloom:hover .step-icon-wrap {
+          box-shadow: 0 6px 16px rgba(139, 112, 201, 0.25);
+        }
+
+        .step-card-partner:hover .step-icon-wrap {
+          box-shadow: 0 6px 16px rgba(231, 71, 54, 0.25);
         }
 
         .step-title {
           font-size: 1.25rem;
           color: var(--ws-indigo-primary);
-          margin-bottom: 8px;
+          margin-bottom: 12px;
           font-weight: 700;
+          line-height: 1.32;
         }
 
         .step-desc {
-          font-size: 0.9rem;
+          font-size: 0.94rem;
           color: var(--ws-text-secondary);
-          line-height: 1.45;
+          line-height: 1.6;
+          margin-bottom: 24px;
+          flex-grow: 1;
+        }
+
+        .step-responsibility-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: var(--ws-indigo-primary);
+          padding-top: 14px;
+          border-top: 1px solid var(--ws-border-light);
+        }
+
+        .step-responsibility-tag.partner-tag {
+          color: #B03423;
+        }
+
+        .responsibility-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+        }
+
+        .dot-sbloom {
+          background-color: #8B70C9;
+        }
+
+        .dot-partner {
+          background-color: #E74736;
+        }
+
+        /* Progression Connectors */
+        .step-connector.desktop-connector {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          padding: 0 6px;
+        }
+
+        .step-connector.mobile-connector {
+          display: none;
+        }
+
+        .connector-line {
+          flex: 1;
+          height: 2px;
+          background: linear-gradient(90deg, rgba(33, 29, 80, 0.08), rgba(33, 29, 80, 0.16));
+        }
+
+        .connector-circle {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #FFFFFF;
+          border: 1px solid var(--ws-border-card);
+          box-shadow: 0 2px 8px rgba(33, 29, 80, 0.06);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--ws-text-secondary);
+          flex-shrink: 0;
+        }
+
+        /* Call To Action Card Below Workflow */
+        .workflow-cta-card {
+          margin-top: 48px;
+          background: #FFFFFF;
+          border-radius: 20px;
+          border: 1px solid var(--ws-border-card);
+          padding: 34px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px;
+          box-shadow: 0 6px 24px rgba(33, 29, 80, 0.04);
+          transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .workflow-cta-card:hover {
+          box-shadow: 0 12px 32px rgba(33, 29, 80, 0.08);
+          border-color: rgba(33, 29, 80, 0.16);
+        }
+
+        .workflow-cta-title {
+          font-family: var(--ws-font-heading);
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: var(--ws-indigo-primary);
+          margin-bottom: 6px;
+          letter-spacing: -0.015em;
+        }
+
+        .workflow-cta-sub {
+          font-size: 1rem;
+          color: var(--ws-text-secondary);
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .workflow-cta-btn {
+          flex-shrink: 0;
+          padding: 14px 30px;
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+
+        @media (max-width: 980px) {
+          .workflow-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          .step-connector.desktop-connector {
+            display: none;
+          }
+
+          .step-connector.mobile-connector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px 0;
+          }
+
+          .connector-arrow-down {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid var(--ws-border-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ws-text-secondary);
+            box-shadow: 0 2px 8px rgba(33, 29, 80, 0.06);
+          }
+
+          .workflow-cta-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px 24px;
+            gap: 20px;
+          }
+
+          .workflow-cta-btn {
+            width: 100%;
+          }
         }
 
         /* 3.0 Who Can Join Grid (Full View Height) */
@@ -1063,11 +1429,9 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
 
         .role-card {
           position: relative;
-          padding: 24px 16px 18px 16px;
           text-align: center;
           display: flex;
           flex-direction: column;
-          align-items: center;
           background-color: #FFFFFF;
           border-radius: 24px;
           border: 1.5px solid rgba(33, 29, 80, 0.08);
@@ -1110,39 +1474,32 @@ export const PartnerWorkspacePage: React.FC<PartnerWorkspacePageProps> = ({
           left: 160%;
         }
 
-        .role-icon-box {
-          width: 52px;
-          height: 52px;
-          border-radius: 50%;
-          background-color: var(--ws-lavender-soft);
-          color: var(--ws-indigo-primary);
+        .role-card-content {
+          padding: 20px 16px 24px 16px;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          margin-bottom: 14px;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                      background-color 0.3s ease,
-                      color 0.3s ease,
-                      box-shadow 0.3s ease;
+          flex: 1;
         }
 
-        .role-card:hover .role-icon-box,
-        .role-card.role-card-selected .role-icon-box {
-          transform: scale(1.14) rotate(4deg);
-          background-color: var(--ws-coral-accent);
-          color: #FFFFFF;
-          box-shadow: 0 8px 20px rgba(231, 71, 54, 0.35);
+        .role-image-wrapper {
+          width: 100%;
+          height: 180px;
+          overflow: hidden;
+          border-bottom: 1.5px solid rgba(33, 29, 80, 0.08);
+          position: relative;
         }
 
-        .role-icon-inner {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .role-hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .role-icon-inner svg {
-          stroke: currentColor;
-          transition: stroke 0.3s ease;
+        .role-card:hover .role-hero-image,
+        .role-card.role-card-selected .role-hero-image {
+          transform: scale(1.08);
         }
 
         .role-title {

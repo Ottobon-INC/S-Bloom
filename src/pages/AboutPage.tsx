@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Sparkles, Target } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 
 export const AboutPage: React.FC = () => {
   const values = [
@@ -34,7 +34,7 @@ export const AboutPage: React.FC = () => {
       <section id="mission" className="section bg-hero-gradient organic-blob-wrapper" style={{ padding: '60px 0 70px' }}>
         <div className="organic-shape-glow glow-peach" style={{ width: '400px', height: '400px', top: '-10%', right: '8%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <Breadcrumbs to="/" label="Back to Home" />
+
 
           <div style={{ maxWidth: '780px', margin: '20px auto 0', textAlign: 'center' }}>
             <span className="eyebrow">OUR STORY & VISION</span>

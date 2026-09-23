@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, HeartPulse, GraduationCap, Briefcase } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 import { INDUSTRIES_DATA } from '../data/contentData';
 
 export const IndustrySelectionPage: React.FC = () => {
@@ -11,7 +11,7 @@ export const IndustrySelectionPage: React.FC = () => {
     <div className="industry-selection-page section">
       <div className="container">
         {/* Back Link */}
-        <Breadcrumbs to="/" label="Back to Home" />
+
 
         {/* Editorial Header (Screen 02) */}
         <div className="page-header-editorial">

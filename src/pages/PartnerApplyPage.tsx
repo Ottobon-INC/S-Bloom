@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 
 export const PartnerApplyPage: React.FC = () => {
   const [role, setRole] = useState('Video Editors');
@@ -20,7 +20,7 @@ export const PartnerApplyPage: React.FC = () => {
   return (
     <div className="partner-apply-page section">
       <div className="container" style={{ maxWidth: '680px' }}>
-        <Breadcrumbs to="/creative-workspace" label="Back to Creative Workspace" />
+
 
         {isSubmitted ? (
           <div

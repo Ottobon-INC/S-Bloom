@@ -17,6 +17,7 @@ import {
   X
 } from 'lucide-react';
 import { SERVICE_PILLARS, INDUSTRIES_DATA } from '../data/contentData';
+import { GenerateButton } from '../components/common/GenerateButton';
 
 interface HomePageProps {
   onOpenConsultation: (
@@ -28,6 +29,14 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
   const industries = Object.values(INDUSTRIES_DATA);
   const [isReelOpen, setIsReelOpen] = useState(false);
+
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+    e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+  };
 
   return (
     <div className="home-page">
@@ -56,15 +65,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
               </p>
 
               <div className="hero-actions-group">
-                <button
+                <GenerateButton
                   onClick={() => onOpenConsultation()}
-                  className="btn btn-indigo"
+                  palette="indigo"
                   id="hero-primary-cta"
                   style={{ padding: '13px 28px', fontSize: '0.98rem' }}
-                >
-                  <span>Let's Create Impact</span>
-                  <ArrowRight size={17} />
-                </button>
+                  text="Let's Create Impact"
+                  icon={<ArrowRight size={17} />}
+                />
 
                 <button
                   type="button"
@@ -240,8 +248,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                   ? 'bcp-icon-create'
                   : 'bcp-icon-promote';
 
+              const cardThemeClass =
+                pillar.title === 'BUILD'
+                  ? 'bcp-card-build'
+                  : pillar.title === 'CREATE'
+                  ? 'bcp-card-create'
+                  : 'bcp-card-promote';
+
               return (
-                <div key={pillar.title} className="bcp-card">
+                <div
+                  key={pillar.title}
+                  className={`bcp-card card-spotlight ${cardThemeClass}`}
+                  onMouseMove={handleCardMouseMove}
+                >
                   <div className="bcp-card-header">
                     <span className="bcp-num">{pillar.num}</span>
                     <div className={`bcp-icon-circle ${iconClass}`}>

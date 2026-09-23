@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GenerateButton } from '../common/GenerateButton';
 import { ArrowRight } from 'lucide-react';
 
 interface FooterProps {
@@ -24,10 +25,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
               Industry-specific marketing and growth partner for Healthcare, Education and Consulting. We build authoritative presence, craft compelling communication, and drive measurable practice growth.
             </p>
             <div style={{ marginTop: '20px' }}>
-              <button onClick={onOpenConsultation} className="btn btn-indigo btn-sm">
-                <span>Start a Conversation</span>
-                <ArrowRight size={14} />
-              </button>
+              <GenerateButton
+                onClick={onOpenConsultation}
+                palette="indigo"
+                className="btn-sm"
+                text="Start a Conversation"
+                icon={<ArrowRight size={14} />}
+              />
             </div>
           </div>
 

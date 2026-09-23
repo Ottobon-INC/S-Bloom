@@ -228,20 +228,243 @@ img {
   background: #E6E1F4;
 }
 
-/* Button System (Rounded 8-12px, Elegant & Compact) */
+/* ==========================================================================
+   Tactile Glassmorphic Button System with Luminous Highlight Animations
+   ========================================================================== */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  padding: 11px 22px;
-  border-radius: var(--radius-btn);
+  padding: 11px 24px;
+  border-radius: var(--radius-btn, 12px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-weight: 600;
-  font-size: 0.94rem;
-  transition: var(--transition-normal);
+  font-size: 0.95rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
-  border: 1px solid transparent;
+  cursor: pointer;
   line-height: 1.2;
+  user-select: none;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Primary Indigo Button (#231C50) with Multi-layer Inset Depth & Shimmer */
+.btn-indigo, .btn-dark {
+  --btn-hue: 250deg;
+  --btn-bg: var(--color-indigo, #231C50);
+
+  background-color: var(--btn-bg);
+  color: #FFFFFF;
+  border: solid 1px rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    inset 0px 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.16),
+    inset 0px 4px 4px rgba(255, 255, 255, 0.1),
+    inset 0px 8px 8px rgba(255, 255, 255, 0.05),
+    inset 0px 16px 16px rgba(255, 255, 255, 0.04),
+    0px -1px 1px rgba(0, 0, 0, 0.04),
+    0px 2px 4px rgba(35, 28, 80, 0.08),
+    0px 6px 18px rgba(35, 28, 80, 0.22);
+}
+
+.btn-indigo::before, .btn-dark::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: calc(var(--radius-btn, 12px) + 3px);
+  pointer-events: none;
+  background-image: linear-gradient(0deg, rgba(35, 28, 80, 0.3), rgba(35, 28, 80, 0.7));
+  z-index: 0;
+  transition: box-shadow 0.35s ease, filter 0.35s ease;
+  box-shadow:
+    0 -4px 6px -4px rgba(0, 0, 0, 0) inset,
+    1px 1px 1px rgba(255, 255, 255, 0.14),
+    2px 2px 2px rgba(255, 255, 255, 0.06),
+    -1px -1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.btn-indigo::after, .btn-dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: linear-gradient(
+    0deg,
+    #fff,
+    hsl(var(--btn-hue), 100%, 75%),
+    hsla(var(--btn-hue), 100%, 75%, 50%),
+    12%,
+    transparent
+  );
+  background-position: 0 0;
+  opacity: 0.35;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+  z-index: 1;
+}
+
+.btn-indigo:hover, .btn-dark:hover {
+  background-color: var(--color-indigo-hover, #181338);
+  transform: translateY(-2px);
+  border-color: hsla(var(--btn-hue), 100%, 80%, 0.45);
+  box-shadow:
+    inset 0px 1px 1px rgba(255, 255, 255, 0.32),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.2),
+    0px 4px 8px rgba(35, 28, 80, 0.15),
+    0px 12px 28px rgba(35, 28, 80, 0.34),
+    0px 0px 20px hsla(var(--btn-hue), 85%, 65%, 0.3);
+}
+
+.btn-indigo:hover::before, .btn-dark:hover::before {
+  box-shadow:
+    0 -8px 8px -6px rgba(255, 255, 255, 0.6) inset,
+    0 -16px 16px -8px hsla(var(--btn-hue), 100%, 70%, 35%) inset,
+    1px 1px 1px rgba(255, 255, 255, 0.22),
+    2px 2px 2px rgba(255, 255, 255, 0.08),
+    -1px -1px 1px rgba(0, 0, 0, 0.14);
+}
+
+.btn-indigo:hover::after, .btn-dark:hover::after {
+  opacity: 1;
+  mask-image: linear-gradient(0deg, #fff, transparent);
+  filter: brightness(118%);
+}
+
+.btn-indigo:active, .btn-dark:active {
+  transform: translateY(1px) scale(0.98);
+  border: solid 1px hsla(var(--btn-hue), 100%, 80%, 0.65);
+  box-shadow:
+    inset 0px 2px 4px rgba(0, 0, 0, 0.25),
+    0px 2px 8px rgba(35, 28, 80, 0.3);
+}
+
+/* Secondary Peach Button (#F09C7D) with Luminous Highlight */
+.btn-peach {
+  --btn-hue: 16deg;
+  --btn-bg: #F09C7D;
+
+  background-color: var(--btn-bg);
+  color: #FFFFFF;
+  border: solid 1px rgba(255, 255, 255, 0.32);
+
+  box-shadow:
+    inset 0px 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.25),
+    inset 0px 4px 4px rgba(255, 255, 255, 0.12),
+    0px 2px 4px rgba(240, 156, 125, 0.15),
+    0px 6px 18px rgba(240, 156, 125, 0.32);
+}
+
+.btn-peach::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: calc(var(--radius-btn, 12px) + 3px);
+  pointer-events: none;
+  background-image: linear-gradient(0deg, rgba(240, 156, 125, 0.3), rgba(240, 156, 125, 0.7));
+  z-index: 0;
+  transition: box-shadow 0.35s ease, filter 0.35s ease;
+  box-shadow:
+    0 -4px 6px -4px rgba(0, 0, 0, 0) inset,
+    1px 1px 1px rgba(255, 255, 255, 0.3),
+    2px 2px 2px rgba(255, 255, 255, 0.12),
+    -1px -1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.btn-peach::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: linear-gradient(
+    0deg,
+    #fff,
+    hsl(var(--btn-hue), 100%, 82%),
+    hsla(var(--btn-hue), 100%, 82%, 60%),
+    14%,
+    transparent
+  );
+  background-position: 0 0;
+  opacity: 0.45;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+  z-index: 1;
+}
+
+.btn-peach:hover {
+  background-color: #e58a69;
+  transform: translateY(-2px);
+  border-color: hsla(var(--btn-hue), 100%, 90%, 0.75);
+  box-shadow:
+    inset 0px 1px 1px rgba(255, 255, 255, 0.52),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.32),
+    0px 4px 8px rgba(240, 156, 125, 0.2),
+    0px 12px 28px rgba(240, 156, 125, 0.45),
+    0px 0px 20px hsla(var(--btn-hue), 95%, 72%, 0.4);
+}
+
+.btn-peach:hover::before {
+  box-shadow:
+    0 -8px 8px -6px rgba(255, 255, 255, 0.7) inset,
+    0 -16px 16px -8px hsla(var(--btn-hue), 100%, 75%, 45%) inset,
+    1px 1px 1px rgba(255, 255, 255, 0.35),
+    2px 2px 2px rgba(255, 255, 255, 0.15);
+}
+
+.btn-peach:hover::after {
+  opacity: 1;
+  mask-image: linear-gradient(0deg, #fff, transparent);
+  filter: brightness(120%);
+}
+
+.btn-peach:active {
+  transform: translateY(1px) scale(0.98);
+  border: solid 1px hsla(var(--btn-hue), 100%, 90%, 0.8);
+  box-shadow:
+    inset 0px 2px 4px rgba(0, 0, 0, 0.2),
+    0px 2px 8px rgba(240, 156, 125, 0.3);
+}
+
+/* Subtle Shimmer Sweep on Hover for Button Labels */
+.btn-indigo:hover span,
+.btn-peach:hover span {
+  animation: btnTextGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes btnTextGlow {
+  0% {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.85), 0 0 16px hsla(var(--btn-hue), 100%, 80%, 0.6);
+  }
 }
 
 .btn-coral {
@@ -254,17 +477,6 @@ img {
   background-color: var(--color-coral-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-coral);
-}
-
-.btn-indigo, .btn-dark {
-  background-color: var(--color-indigo);
-  color: #FFFFFF;
-}
-
-.btn-indigo:hover, .btn-dark:hover {
-  background-color: var(--color-indigo-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
@@ -879,19 +1091,26 @@ img {
   font-size: 0.94rem;
   border-radius: var(--radius-pill);
   border: 1.5px solid rgba(35, 28, 80, 0.16);
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--color-indigo);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(35, 28, 80, 0.04);
 }
 
 .studio-reel-btn:hover {
   background: #FFFFFF;
-  border-color: var(--color-coral);
+  border-color: rgba(240, 156, 125, 0.75);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(35, 28, 80, 0.08);
+  box-shadow: 0 10px 24px rgba(35, 28, 80, 0.09), 0 0 16px rgba(240, 156, 125, 0.25);
+}
+
+.studio-reel-btn:hover .reel-play-icon {
+  transform: scale(1.12);
+  background-color: #FBE6DE;
+  box-shadow: 0 4px 12px rgba(240, 156, 125, 0.35);
 }
 
 .reel-play-icon {
@@ -903,6 +1122,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Arched Studio Visual Composition (Right Column) */
@@ -1219,6 +1439,55 @@ img {
   gap: 28px;
 }
 
+/* ==========================================================================
+   Card Spotlight & Interactive Ambient Glow System
+   ========================================================================== */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(35, 28, 80, 0.08);
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-color),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-spotlight:hover::before,
+.card-spotlight:focus-within::before {
+  opacity: 1;
+}
+
+.card-spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional Dark surface variant */
+.card-spotlight-dark {
+  background-color: #111116;
+  border-color: rgba(255, 255, 255, 0.12);
+  --spotlight-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   BUILD · CREATE · PROMOTE Cards (Synced with Brand Palette)
+   ========================================================================== */
 .bcp-card {
   background-color: var(--bg-white);
   border-radius: var(--radius-card);
@@ -1226,13 +1495,70 @@ img {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: var(--transition-normal);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Shimmer Top Accent Bar */
+.bcp-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent-gradient, linear-gradient(90deg, transparent, var(--card-accent, var(--color-indigo)), transparent));
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .bcp-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  border-color: var(--card-border-hover, var(--border-medium));
+  box-shadow: var(--card-shadow-hover, var(--shadow-lg));
+}
+
+.bcp-card:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Card 01 - BUILD: Lilac / Lavender Palette */
+.bcp-card-build {
+  --spotlight-color: rgba(198, 182, 235, 0.45);
+  --card-accent: #7961BF;
+  --card-accent-gradient: linear-gradient(90deg, transparent, #8B70C9, transparent);
+  --card-border-hover: rgba(186, 164, 238, 0.7);
+  --card-shadow-hover: 0 20px 42px -10px rgba(126, 101, 196, 0.22), 0 8px 16px -4px rgba(35, 28, 80, 0.05);
+  --bullet-color: #8B70C9;
+}
+
+/* Card 02 - CREATE: Peach / Coral (#F09C7D) Palette */
+.bcp-card-create {
+  --spotlight-color: rgba(240, 156, 125, 0.45);
+  --card-accent: #E57E5D;
+  --card-accent-gradient: linear-gradient(90deg, transparent, #F09C7D, transparent);
+  --card-border-hover: rgba(240, 156, 125, 0.75);
+  --card-shadow-hover: 0 20px 42px -10px rgba(229, 126, 93, 0.24), 0 8px 16px -4px rgba(35, 28, 80, 0.05);
+  --bullet-color: #F09C7D;
+}
+
+/* Card 03 - PROMOTE: Pale Sky Blue Palette */
+.bcp-card-promote {
+  --spotlight-color: rgba(145, 195, 232, 0.48);
+  --card-accent: #3F83B3;
+  --card-accent-gradient: linear-gradient(90deg, transparent, #5D9AC4, transparent);
+  --card-border-hover: rgba(145, 195, 232, 0.75);
+  --card-shadow-hover: 0 20px 42px -10px rgba(65, 132, 179, 0.22), 0 8px 16px -4px rgba(35, 28, 80, 0.05);
+  --bullet-color: #5D9AC4;
 }
 
 .bcp-card-header {
@@ -1243,10 +1569,16 @@ img {
 }
 
 .bcp-num {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  color: var(--color-coral);
+  color: var(--color-indigo);
   letter-spacing: 0.08em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.bcp-card:hover .bcp-num {
+  color: var(--card-accent, var(--color-indigo));
+  transform: translateX(3px);
 }
 
 .bcp-icon-circle {
@@ -1256,6 +1588,47 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              background-color 0.35s ease;
+}
+
+.bcp-card:hover .bcp-icon-circle {
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: 0 8px 22px var(--spotlight-color);
+}
+
+.bcp-card .bcp-icon-circle svg {
+  transition: transform 0.3s ease;
+}
+
+/* Micro-animations for each pillar icon */
+.bcp-card-build:hover .bcp-icon-circle svg {
+  animation: bcpSparkleAnim 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes bcpSparkleAnim {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.18) rotate(14deg); }
+}
+
+.bcp-card-create:hover .bcp-icon-circle svg {
+  animation: bcpCameraAnim 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bcpCameraAnim {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.22) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.bcp-card-promote:hover .bcp-icon-circle svg {
+  animation: bcpTrendingAnim 0.85s ease-in-out infinite alternate;
+}
+
+@keyframes bcpTrendingAnim {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(3px, -3px); }
 }
 
 .bcp-icon-build {
@@ -1265,7 +1638,7 @@ img {
 
 .bcp-icon-create {
   background-color: var(--bg-peach);
-  color: var(--color-coral);
+  color: var(--color-indigo);
 }
 
 .bcp-icon-promote {
@@ -1278,6 +1651,11 @@ img {
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 0.02em;
+  color: var(--color-indigo);
+  transition: color 0.25s ease;
+}
+
+.bcp-card:hover .bcp-card-title {
   color: var(--color-indigo);
 }
 
@@ -1305,13 +1683,26 @@ img {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-indigo);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.bcp-list-item:hover {
+  transform: translateX(4px);
+  color: var(--card-accent, var(--color-indigo));
 }
 
 .bcp-list-bullet {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--color-coral);
+  background-color: var(--color-indigo);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
+}
+
+.bcp-card:hover .bcp-list-bullet {
+  background-color: var(--bullet-color, var(--color-coral));
+  transform: scale(1.25);
 }
 
 /* Industries Preview Strip (Home) */

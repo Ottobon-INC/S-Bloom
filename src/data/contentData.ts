@@ -16,6 +16,8 @@ export interface IndustryConfig {
   tagline: string;
   landingHeadline: string;
   landingDescription: string;
+  cardHeadline?: string;
+  cardDescription?: string;
   proofBadges: IndustryProofBadge[];
   imageUrl: string;
   landingImageUrl: string;
@@ -90,6 +92,8 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
     tagline: 'More trust. More patients. A stronger presence.',
     landingHeadline: 'Healthcare',
     landingDescription: 'We understand your world. From patient trust to practice growth, we create strategies that make your expertise more visible and more valuable.',
+    cardHeadline: 'Build Trust. Share Your Expertise.',
+    cardDescription: 'Create content that helps patients understand your services and get to know your practice.',
     proofBadges: [
       { label: 'Patients', iconName: 'Heart' },
       { label: 'Procedures', iconName: 'FileText' },
@@ -106,6 +110,8 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
     tagline: 'More visibility. More opportunities. A brighter future.',
     landingHeadline: 'Education',
     landingDescription: 'We illuminate academic rigor and innovative pedagogy. From prospective student enrollment to faculty thought leadership, we turn complex curricula into compelling narratives.',
+    cardHeadline: 'Showcase What Makes Your Institution Special.',
+    cardDescription: 'Highlight your programs, faculty, campus, and learning experience to connect with students and families.',
     proofBadges: [
       { label: 'Learners', iconName: 'GraduationCap' },
       { label: 'Curricula', iconName: 'BookOpen' },
@@ -122,6 +128,8 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
     tagline: 'More authority. More business. A wider impact.',
     landingHeadline: 'Consulting',
     landingDescription: 'High-stakes advisory requires unassailable credibility. We help management consultants and strategic advisory firms productize their intellectual property and win enterprise mandates.',
+    cardHeadline: 'Share Your Expertise. Build Your Presence.',
+    cardDescription: 'Turn your knowledge, insights, and services into content that helps potential clients understand your value.',
     proofBadges: [
       { label: 'Advisory', iconName: 'Briefcase' },
       { label: 'Dealflow', iconName: 'Target' },

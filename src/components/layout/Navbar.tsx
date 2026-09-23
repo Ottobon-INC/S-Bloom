@@ -53,37 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const navItems: NavItem[] = [
     {
       label: 'Home',
-      href: '/',
-      dropdown: [
-        {
-          title: 'Studio Production Hub',
-          subtitle: 'High-end recording & podcast infrastructure',
-          href: '/#hero',
-          icon: Radio
-        },
-        {
-          title: 'Core Growth Framework',
-          subtitle: 'Build · Create · Promote strategic pillars',
-          href: '/#services',
-          icon: Layers
-        },
-        {
-          title: 'Industry Gateways',
-          subtitle: 'Healthcare, Education & Consulting pathways',
-          href: '/#industries',
-          icon: Compass
-        },
-        {
-          title: 'Client & Creator Flow',
-          subtitle: 'End-to-end journey from concept to impact',
-          href: '/#flow',
-          icon: TrendingUp
-        }
-      ],
-      featuredLink: {
-        label: 'Explore Complete Experience →',
-        href: '/'
-      }
+      href: '/'
     },
     {
       label: 'Services',

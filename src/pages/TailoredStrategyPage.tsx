@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Check, ArrowRight } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 import { TAILORED_STRATEGIES, INDUSTRIES_DATA } from '../data/contentData';
 
 interface TailoredStrategyPageProps {
@@ -28,10 +28,7 @@ export const TailoredStrategyPage: React.FC<TailoredStrategyPageProps> = ({
     <div className="tailored-strategy-page">
       <section className="strategy-hero-editorial">
         <div className="container">
-          <Breadcrumbs
-            to={`/industries/${industry}`}
-            label={`Back to ${industryInfo.title}`}
-          />
+
 
           <div className="strategy-hero-grid">
             {/* Left Column: Eyebrow, Title, Copy, Checklist, CTA */}

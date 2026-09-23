@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowRight, User, Building2 } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 import { INDUSTRIES_DATA } from '../data/contentData';
 
 export const EntitySelectionPage: React.FC = () => {
@@ -16,7 +16,7 @@ export const EntitySelectionPage: React.FC = () => {
   return (
     <div className="entity-selection-page section">
       <div className="container">
-        <Breadcrumbs to={`/industries/${industry}`} label={`Back to ${indData.title}`} />
+
 
         <div className="page-header-editorial">
           <span className="eyebrow">WHO ARE YOU?</span>

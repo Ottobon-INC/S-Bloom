@@ -15,7 +15,7 @@ import {
   Target,
   ShieldCheck
 } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 import { INDUSTRIES_DATA } from '../data/contentData';
 
 export const IndustryLandingPage: React.FC = () => {
@@ -59,7 +59,7 @@ export const IndustryLandingPage: React.FC = () => {
       {/* SCREEN 03: INDUSTRY LANDING */}
       <section className="industry-landing-hero">
         <div className="container">
-          <Breadcrumbs to="/industries" label="Back to Industries" />
+
 
           <div className="industry-landing-grid">
             <div>

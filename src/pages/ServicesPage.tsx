@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   Sparkles,
@@ -7,8 +7,9 @@ import {
   TrendingUp,
   CheckCircle2
 } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 import { SERVICE_PILLARS, INDUSTRIES_DATA } from '../data/contentData';
+import { GenerateButton } from '../components/common/GenerateButton';
 
 interface ServicesPageProps {
   onOpenConsultation: (
@@ -19,6 +20,7 @@ interface ServicesPageProps {
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }) => {
   const industries = Object.values(INDUSTRIES_DATA);
+  const navigate = useNavigate();
 
   return (
     <div className="services-page">
@@ -27,7 +29,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
         <div className="organic-shape-glow glow-peach" style={{ width: '420px', height: '420px', top: '-10%', right: '8%' }} />
         <div className="organic-shape-glow glow-lavender" style={{ width: '360px', height: '360px', bottom: '0', left: '5%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <Breadcrumbs to="/" label="Back to Home" />
+
 
           <div style={{ maxWidth: '820px', margin: '20px auto 0', textAlign: 'center' }}>
             <span className="eyebrow">INTEGRATED SERVICE FRAMEWORK</span>
@@ -38,13 +40,19 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
               An integrated growth architecture designed specifically to elevate regulated, high-trust professionals and institutions in Healthcare, Education, and Consulting.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-              <button onClick={() => onOpenConsultation()} className="btn btn-indigo" id="services-cta-talk">
-                <span>Start a Conversation</span>
-                <ArrowRight size={16} />
-              </button>
-              <Link to="/industries" className="btn btn-indigo">
-                <span>Explore Industries</span>
-              </Link>
+              <GenerateButton
+                onClick={() => onOpenConsultation()}
+                palette="indigo"
+                id="services-cta-talk"
+                text="Start a Conversation"
+                icon={<ArrowRight size={16} />}
+              />
+              <GenerateButton
+                onClick={() => navigate('/industries')}
+                palette="peach"
+                text="Explore Industries"
+                showIcon={false}
+              />
             </div>
           </div>
         </div>
@@ -179,10 +187,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <section className="section bg-peach-section">
         <div className="container">
           <div className="section-header-centered">
-            <span className="eyebrow">TAILORED FOR YOUR WORLD</span>
-            <h2 style={{ fontSize: '2.4rem' }}>How We Apply Services by Industry</h2>
+            <span className="eyebrow">TAILORED TO YOUR INDUSTRY</span>
+            <h2 style={{ fontSize: '2.4rem' }}>Content That Fits Your Industry.</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              No generic templates. Every workflow adapts to regulatory requirements and domain expectations.
+              We help experts and organizations turn their knowledge, services, and expertise into content that connects with the right audience.
             </p>
           </div>
 
@@ -204,10 +212,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                 <div>
                   <span className="pill-badge" style={{ marginBottom: '14px' }}>{ind.title}</span>
                   <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--color-indigo)', marginBottom: '10px' }}>
-                    {ind.tagline}
+                    {ind.cardHeadline || ind.tagline}
                   </h3>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                    {ind.landingDescription}
+                    {ind.cardDescription || ind.landingDescription}
                   </p>
                 </div>
 
@@ -216,7 +224,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   className="btn btn-outline"
                   style={{ width: '100%', justifyContent: 'space-between' }}
                 >
-                  <span>Explore {ind.title} Pathway</span>
+                  <span>Explore {ind.title}</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -236,13 +244,20 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             Share your practice or institution goals with our directors and receive an actionable growth outline.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-            <button onClick={() => onOpenConsultation()} className="btn btn-indigo btn-lg" style={{ padding: '14px 32px' }}>
-              <span>Start a Conversation</span>
-              <ArrowRight size={16} />
-            </button>
-            <Link to="/industries" className="btn btn-indigo btn-lg" style={{ padding: '14px 32px' }}>
-              <span>Choose Your Industry</span>
-            </Link>
+            <GenerateButton
+              onClick={() => onOpenConsultation()}
+              palette="indigo"
+              style={{ padding: '14px 32px' }}
+              text="Start a Conversation"
+              icon={<ArrowRight size={16} />}
+            />
+            <GenerateButton
+              onClick={() => navigate('/industries')}
+              palette="peach"
+              style={{ padding: '14px 32px' }}
+              text="Choose Your Industry"
+              showIcon={false}
+            />
           </div>
         </div>
       </section>

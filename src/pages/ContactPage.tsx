@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, Mail, MapPin } from 'lucide-react';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+
 
 export const ContactPage: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -19,7 +19,7 @@ export const ContactPage: React.FC = () => {
     <div className="contact-page section bg-hero-gradient organic-blob-wrapper" style={{ minHeight: '85vh' }}>
       <div className="organic-shape-glow glow-peach" style={{ width: '440px', height: '440px', top: '0', right: '5%' }} />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <Breadcrumbs to="/" label="Back to Home" />
+
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: '56px', alignItems: 'start', marginTop: '20px' }}>
           {/* Left Column: Contact Details & Reassurance */}
