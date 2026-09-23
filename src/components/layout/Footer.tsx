@@ -13,20 +13,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
         <div className="footer-top-grid">
           {/* Brand Col */}
           <div>
-            <Link to="/" className="brand-logo-wrap" style={{ color: '#FFFFFF' }}>
-              <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2C16 10 9 16 2 16C9 16 16 22 16 30C16 22 23 16 30 16C23 16 16 10 16 2Z" fill="#E74736"/>
-                <path d="M22 6C22 12 18 16 14 16C18 16 22 20 22 26C22 20 26 16 30 16C26 16 22 12 22 6Z" fill="#C7B4EA" opacity="0.9"/>
-              </svg>
-              <span>sBLOOM</span>
+            <Link to="/" className="brand-logo-wrap" aria-label="sBLOOM Home" style={{ color: '#FFFFFF' }}>
+              <img
+                src="/sbloom-logo.png"
+                alt="sBLOOM"
+                className="brand-logo-img footer-logo-img"
+              />
             </Link>
             <p className="footer-brand-bio">
               Industry-specific marketing and growth partner for Healthcare, Education and Consulting. We build authoritative presence, craft compelling communication, and drive measurable practice growth.
             </p>
-            <div style={{ marginTop: '20px' }}>
-              <button onClick={onOpenConsultation} className="btn btn-indigo btn-sm">
+            <div style={{ marginTop: '10px' }}>
+              <button onClick={onOpenConsultation} className="btn btn-indigo btn-sm" style={{ padding: '6px 14px', fontSize: '0.8rem' }}>
                 <span>Start a Conversation</span>
-                <ArrowRight size={14} />
+                <ArrowRight size={13} />
               </button>
             </div>
           </div>
@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <p>&copy; {new Date().getFullYear()} sBLOOM Marketing Partner. All rights reserved.</p>
-          <div style={{ display: 'flex', gap: '24px' }}>
+          <div style={{ display: 'flex', gap: '16px' }}>
             <span>Healthcare</span>
             <span>&bull;</span>
             <span>Education</span>

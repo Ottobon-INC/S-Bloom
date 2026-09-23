@@ -5,10 +5,13 @@ import {
   Sparkles,
   Camera,
   TrendingUp,
-  CheckCircle2
+  CheckCircle2,
+  HeartPulse,
+  GraduationCap,
+  Briefcase
 } from 'lucide-react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
-import { SERVICE_PILLARS, INDUSTRIES_DATA } from '../data/contentData';
+import { SERVICE_PILLARS } from '../data/contentData';
 
 interface ServicesPageProps {
   onOpenConsultation: (
@@ -17,8 +20,66 @@ interface ServicesPageProps {
   ) => void;
 }
 
+interface IndustryServiceApplication {
+  id: 'healthcare' | 'education' | 'consulting';
+  title: string;
+  audience: string;
+  simpleDescription: string;
+  icon: React.ReactNode;
+  iconBg: string;
+  iconColor: string;
+  deliverables: {
+    stage: 'Build' | 'Create' | 'Promote';
+    item: string;
+  }[];
+}
+
+const INDUSTRY_APPLICATIONS: IndustryServiceApplication[] = [
+  {
+    id: 'healthcare',
+    title: 'Healthcare',
+    audience: 'Doctors, Clinics & Hospitals',
+    simpleDescription: 'We help doctors build patient trust and grow clinic appointments.',
+    icon: <HeartPulse size={24} />,
+    iconBg: 'var(--bg-peach)',
+    iconColor: 'var(--color-coral)',
+    deliverables: [
+      { stage: 'Build', item: 'Clinic Website & Google Profile' },
+      { stage: 'Create', item: 'Patient Education Videos' },
+      { stage: 'Promote', item: 'Meta Ads & Google Ads' }
+    ]
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    audience: 'Schools, Universities & Educators',
+    simpleDescription: 'We help schools attract students and showcase academic programs.',
+    icon: <GraduationCap size={24} />,
+    iconBg: 'var(--bg-lavender)',
+    iconColor: 'var(--color-indigo)',
+    deliverables: [
+      { stage: 'Build', item: 'Admissions & Course Pages' },
+      { stage: 'Create', item: 'Student Story Videos & Media' },
+      { stage: 'Promote', item: 'Meta Ads & Influencer Collabs' }
+    ]
+  },
+  {
+    id: 'consulting',
+    title: 'Consulting',
+    audience: 'Advisors, Coaches & Advisory Firms',
+    simpleDescription: 'We help consultants win enterprise clients and build market authority.',
+    icon: <Briefcase size={24} />,
+    iconBg: '#FFF3E0',
+    iconColor: '#C2410C',
+    deliverables: [
+      { stage: 'Build', item: 'Executive Authority Website' },
+      { stage: 'Create', item: 'Video Podcasts & Case Studies' },
+      { stage: 'Promote', item: 'Google Ads & Meta Ads' }
+    ]
+  }
+];
+
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }) => {
-  const industries = Object.values(INDUSTRIES_DATA);
 
   return (
     <div className="services-page">
@@ -29,21 +90,73 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Breadcrumbs to="/" label="Back to Home" />
 
-          <div style={{ maxWidth: '820px', margin: '20px auto 0', textAlign: 'center' }}>
+          <div style={{ maxWidth: '900px', margin: '20px auto 0', textAlign: 'center' }}>
             <span className="eyebrow">INTEGRATED SERVICE FRAMEWORK</span>
-            <h1 className="hero-headline" style={{ fontSize: 'clamp(2.6rem, 4.8vw, 4rem)' }}>
-              BUILD &nbsp;&middot;&nbsp; CREATE &nbsp;&middot;&nbsp; PROMOTE
+            
+            <h1 className="services-hero-title">
+              <span>BUILD</span>
+              <span className="services-hero-dot">&middot;</span>
+              <span>CREATE</span>
+              <span className="services-hero-dot">&middot;</span>
+              <span>PROMOTE</span>
             </h1>
-            <p className="hero-description" style={{ margin: '0 auto 28px', fontSize: '1.15rem' }}>
-              An integrated growth architecture designed specifically to elevate regulated, high-trust professionals and institutions in Healthcare, Education, and Consulting.
+
+            <p className="hero-description" style={{ margin: '0 auto 28px', fontSize: '1.08rem', maxWidth: '640px', lineHeight: 1.6 }}>
+              A structured, three-stage growth engine designed for experts and institutions in Healthcare, Education, and Consulting.
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
+
+            {/* 3-Step Connected Framework Cards */}
+            <div className="framework-hero-row">
+              <a href="#build" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 01</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--bg-lavender)', color: 'var(--color-indigo)' }}>
+                    <Sparkles size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">BUILD</h4>
+                <p className="framework-hero-card-sub">Web, SEO & Digital Foundation</p>
+              </a>
+
+              <div className="framework-hero-arrow" aria-hidden="true">
+                <ArrowRight size={20} />
+              </div>
+
+              <a href="#create" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 02</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-coral)' }}>
+                    <Camera size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">CREATE</h4>
+                <p className="framework-hero-card-sub">Studio Media, Video & Editorial</p>
+              </a>
+
+              <div className="framework-hero-arrow" aria-hidden="true">
+                <ArrowRight size={20} />
+              </div>
+
+              <a href="#promote" className="framework-hero-card">
+                <div className="framework-hero-card-top">
+                  <span className="framework-hero-num">STAGE 03</span>
+                  <div className="framework-hero-icon" style={{ backgroundColor: 'var(--accent-pale-blue)', color: 'var(--color-indigo)' }}>
+                    <TrendingUp size={20} />
+                  </div>
+                </div>
+                <h4 className="framework-hero-card-title">PROMOTE</h4>
+                <p className="framework-hero-card-sub">Meta Ads, Google Ads & Collabs</p>
+              </a>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <button onClick={() => onOpenConsultation()} className="btn btn-indigo" id="services-cta-talk">
                 <span>Start a Conversation</span>
                 <ArrowRight size={16} />
               </button>
-              <Link to="/industries" className="btn btn-indigo">
+              <Link to="/industries" className="btn btn-outline">
                 <span>Explore Industries</span>
+                <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -54,14 +167,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <section className="section bg-lavender-section" id="pillars-detail">
         <div className="container">
           <div className="section-header-centered">
-            <span className="eyebrow">END-TO-END CAPABILITIES</span>
+            <span className="eyebrow">OUR CORE CAPABILITIES</span>
             <h2 style={{ fontSize: '2.4rem' }}>The Three Pillars of sBLOOM</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              Every deliverable is handled by dedicated domain producers and creative technicians.
+              From initial digital foundation to studio production and targeted audience growth.
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             {SERVICE_PILLARS.map((pillar) => {
               const iconCircleBg =
                 pillar.title === 'BUILD'
@@ -77,96 +190,52 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   ? 'var(--color-coral)'
                   : 'var(--color-indigo)';
 
-              const strategicValue =
+              const strategicOutcome =
                 pillar.title === 'BUILD'
-                  ? 'We establish unbreakable digital discoverability and institutional credibility so patients, students, and clients find verified, authoritative information directly from you.'
+                  ? 'Establishes verified search visibility and credibility so clients find authoritative information directly from you.'
                   : pillar.title === 'CREATE'
-                  ? 'We turn dense clinical breakthroughs, academic syllabi, or proprietary consulting frameworks into clear, engaging visual media and articles that build enduring authority.'
-                  : 'We deploy precision targeting and strategic distribution so your message reaches executive decision-makers, prospective patients, and ambitious learners at the exact moment of decision.';
+                  ? 'Turns complex ideas into high-quality studio media, video, and articles that build enduring authority.'
+                  : 'Drives qualified leads and appointments through targeted Meta Ads, Google Ads, and influencer collaborations.';
 
               return (
                 <div
                   key={pillar.title}
                   id={pillar.title.toLowerCase()}
-                  style={{
-                    background: 'var(--bg-white)',
-                    borderRadius: 'var(--radius-card)',
-                    padding: '44px 40px',
-                    border: '1px solid var(--border-subtle)',
-                    boxShadow: 'var(--shadow-sm)',
-                    display: 'grid',
-                    gridTemplateColumns: '1.1fr 0.9fr',
-                    gap: '40px',
-                    alignItems: 'center'
-                  }}
+                  className="pillar-clean-card"
                 >
-                  {/* Left: Number, Title, Description, Strategic Value */}
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
-                      <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--color-coral)', letterSpacing: '0.08em' }}>
-                        PHASE {pillar.num}
-                      </span>
+                  {/* Left: Phase, Title, Summary, Outcome */}
+                  <div className="pillar-clean-info">
+                    <div className="pillar-clean-badge-row">
                       <div
-                        style={{
-                          width: '44px',
-                          height: '44px',
-                          borderRadius: '50%',
-                          background: iconCircleBg,
-                          color: iconColor,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}
+                        className="pillar-clean-icon"
+                        style={{ background: iconCircleBg, color: iconColor }}
                       >
-                        {pillar.title === 'BUILD' && <Sparkles size={22} />}
-                        {pillar.title === 'CREATE' && <Camera size={22} />}
-                        {pillar.title === 'PROMOTE' && <TrendingUp size={22} />}
+                        {pillar.title === 'BUILD' && <Sparkles size={20} />}
+                        {pillar.title === 'CREATE' && <Camera size={20} />}
+                        {pillar.title === 'PROMOTE' && <TrendingUp size={20} />}
                       </div>
+                      <span className="pillar-clean-phase">PHASE {pillar.num}</span>
                     </div>
 
-                    <h3 style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-indigo)', marginBottom: '10px' }}>
-                      {pillar.title}
-                    </h3>
-                    <p style={{ fontSize: '1.08rem', color: 'var(--text-secondary)', marginBottom: '20px', lineHeight: 1.6 }}>
-                      {pillar.subtitle}
-                    </p>
+                    <h3 className="pillar-clean-title">{pillar.title}</h3>
+                    <p className="pillar-clean-desc">{pillar.subtitle}</p>
 
-                    <div
-                      style={{
-                        background: 'var(--bg-main)',
-                        padding: '16px 20px',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1px solid var(--border-subtle)',
-                        fontSize: '0.94rem',
-                        color: 'var(--text-secondary)',
-                        lineHeight: 1.6
-                      }}
-                    >
-                      <strong style={{ color: 'var(--color-indigo)' }}>Strategic Outcome: </strong>
-                      {strategicValue}
+                    <div className="pillar-clean-outcome">
+                      <span><strong>Key Outcome:</strong> {strategicOutcome}</span>
                     </div>
                   </div>
 
-                  {/* Right: Core Deliverables List */}
-                  <div
-                    style={{
-                      background: 'var(--bg-main)',
-                      borderRadius: 'var(--radius-card)',
-                      padding: '32px 28px',
-                      border: '1px solid var(--border-subtle)'
-                    }}
-                  >
-                    <h4 style={{ fontSize: '0.92rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-indigo)', marginBottom: '18px' }}>
-                      Core Deliverables Included
-                    </h4>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {/* Right: Deliverables List */}
+                  <div className="pillar-clean-deliverables">
+                    <span className="pillar-clean-deliv-title">What's Included</span>
+                    <div className="pillar-clean-grid">
                       {pillar.deliverables.map((d) => (
-                        <li key={d} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-indigo)' }}>
-                          <CheckCircle2 size={18} color="var(--color-coral)" />
+                        <div key={d} className="pillar-clean-item">
+                          <CheckCircle2 size={18} color="var(--color-coral)" style={{ flexShrink: 0 }} />
                           <span>{d}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               );
@@ -182,41 +251,44 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             <span className="eyebrow">TAILORED FOR YOUR WORLD</span>
             <h2 style={{ fontSize: '2.4rem' }}>How We Apply Services by Industry</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              No generic templates. Every workflow adapts to regulatory requirements and domain expectations.
+              How Build, Create, and Promote adapt directly to your field — clear, proven, and compliant.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
-            {industries.map((ind) => (
-              <div
-                key={ind.id}
-                style={{
-                  background: 'var(--bg-white)',
-                  borderRadius: 'var(--radius-card)',
-                  padding: '36px 30px',
-                  border: '1px solid var(--border-subtle)',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
+          <div className="industry-apply-grid">
+            {INDUSTRY_APPLICATIONS.map((item) => (
+              <div key={item.id} className="industry-apply-card">
                 <div>
-                  <span className="pill-badge" style={{ marginBottom: '14px' }}>{ind.title}</span>
-                  <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: 'var(--color-indigo)', marginBottom: '10px' }}>
-                    {ind.tagline}
-                  </h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                    {ind.landingDescription}
-                  </p>
+                  <div className="industry-apply-top">
+                    <div
+                      className="industry-apply-icon"
+                      style={{ backgroundColor: item.iconBg, color: item.iconColor }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div className="industry-apply-meta">
+                      <h3 className="industry-apply-title">{item.title}</h3>
+                      <span className="industry-apply-audience">{item.audience}</span>
+                    </div>
+                  </div>
+
+                  <p className="industry-apply-desc">{item.simpleDescription}</p>
+
+                  <ul className="industry-apply-step-list">
+                    {item.deliverables.map((d) => (
+                      <li key={d.stage} className="industry-apply-step-item">
+                        <CheckCircle2 size={17} color="var(--color-coral)" style={{ flexShrink: 0 }} />
+                        <span><strong>{d.stage}:</strong> {d.item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <Link
-                  to={`/industries/${ind.id}`}
-                  className="btn btn-outline"
-                  style={{ width: '100%', justifyContent: 'space-between' }}
+                  to={`/industries/${item.id}`}
+                  className="btn btn-outline industry-apply-btn"
                 >
-                  <span>Explore {ind.title} Pathway</span>
+                  <span>Explore {item.title} Pathway</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -240,7 +312,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
               <span>Start a Conversation</span>
               <ArrowRight size={16} />
             </button>
-            <Link to="/industries" className="btn btn-indigo btn-lg" style={{ padding: '14px 32px' }}>
+            <Link to="/industries" className="btn btn-outline btn-lg" style={{ padding: '14px 32px' }}>
               <span>Choose Your Industry</span>
             </Link>
           </div>

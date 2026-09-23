@@ -74,10 +74,9 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: 'PROMOTE',
     subtitle: 'Put your brand in front of the right audience.',
     deliverables: [
-      'Targeted Paid Ad Campaigns',
-      'Strategic Promotion Launches',
-      'Creator & Subject-Matter Collaborations',
-      'Systematic Audience & Practice Growth'
+      'Meta Ads',
+      'Google Ads',
+      'Influencer Collabs'
     ]
   }
 ];
@@ -87,48 +86,48 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
   healthcare: {
     id: 'healthcare',
     title: 'Healthcare',
-    tagline: 'More trust. More patients. A stronger presence.',
+    tagline: 'Build Patient Trust & Grow Your Practice',
     landingHeadline: 'Healthcare',
-    landingDescription: 'We understand your world. From patient trust to practice growth, we create strategies that make your expertise more visible and more valuable.',
+    landingDescription: 'We help healthcare professionals and organizations build patient trust, strengthen visibility, and sustainably grow their practice.',
     proofBadges: [
       { label: 'Patients', iconName: 'Heart' },
       { label: 'Procedures', iconName: 'FileText' },
       { label: 'Awareness', iconName: 'Users' },
       { label: 'Growth', iconName: 'TrendingUp' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=85',
+    imageUrl: '/industry-healthcare.jpg',
     landingImageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1000&q=85',
     quote: 'Every medical breakthrough begins with trust. We help you share clinical mastery with warmth and authority.'
   },
   education: {
     id: 'education',
     title: 'Education',
-    tagline: 'More visibility. More opportunities. A brighter future.',
+    tagline: 'Attract Students & Showcase Academic Excellence',
     landingHeadline: 'Education',
-    landingDescription: 'We illuminate academic rigor and innovative pedagogy. From prospective student enrollment to faculty thought leadership, we turn complex curricula into compelling narratives.',
+    landingDescription: 'We help schools, universities, and educators attract students, showcase academic programs, and build thought leadership.',
     proofBadges: [
       { label: 'Learners', iconName: 'GraduationCap' },
       { label: 'Curricula', iconName: 'BookOpen' },
       { label: 'Reputation', iconName: 'Award' },
       { label: 'Outcomes', iconName: 'TrendingUp' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=85',
+    imageUrl: '/industry-education.jpg',
     landingImageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=85',
     quote: 'Knowledge is transformative only when it is understood. We help educators inspire a global audience.'
   },
   consulting: {
     id: 'consulting',
     title: 'Consulting',
-    tagline: 'More authority. More business. A wider impact.',
+    tagline: 'Win High-Value Clients & Build Market Authority',
     landingHeadline: 'Consulting',
-    landingDescription: 'High-stakes advisory requires unassailable credibility. We help management consultants and strategic advisory firms productize their intellectual property and win enterprise mandates.',
+    landingDescription: 'We help consultants and advisory firms build market authority, attract high-value clients, and scale their practice.',
     proofBadges: [
       { label: 'Advisory', iconName: 'Briefcase' },
       { label: 'Dealflow', iconName: 'Target' },
       { label: 'Authority', iconName: 'ShieldCheck' },
       { label: 'Valuation', iconName: 'TrendingUp' }
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=85',
+    imageUrl: '/industry-consulting.jpg',
     landingImageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=85',
     quote: 'Consulting excellence is built on differentiated insights. We turn strategic methodologies into market authority.'
   }

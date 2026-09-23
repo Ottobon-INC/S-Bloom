@@ -47,12 +47,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
               </span>
 
               <h1 className="hero-headline editorial-title">
-                Ideas that create<br />
-                real growth.
+                Help your knowledge reach<br />
+                more people and bloom.
               </h1>
 
               <p className="hero-description">
-                We help experts and institutions in Healthcare, Education and Consulting build digital presence, create meaningful content and reach the right audience.
+                From websites and SEO to social media and content, we help you get found and connect with the right audience.
               </p>
 
               <div className="hero-actions-group">
@@ -144,7 +144,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                     I'm an Expert / Institution looking to grow
                   </h3>
                   <p className="gateway-card-subtext">
-                    Build your professional presence, share expertise, or showcase your facilities and team.
+                    Build your presence, share expertise, or showcase your team.
                   </p>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
                     Join our Creative Workspace
                   </h3>
                   <p className="gateway-card-subtext">
-                    Connect with curated storyboards and client briefs as a creative partner.
+                    Access curated client briefs and collaborate as a creative partner.
                   </p>
                 </div>
               </div>
@@ -418,10 +418,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
               </p>
             </div>
             <div>
-              <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                <path d="M50 8C50 30 30 50 8 50C30 50 50 70 50 92C50 70 70 50 92 50C70 50 50 30 50 8Z" fill="#E74736"/>
-                <path d="M68 20C68 38 56 50 44 50C56 50 68 62 68 80C68 62 80 50 92 50C80 50 68 38 68 20Z" fill="#C7B4EA" opacity="0.9"/>
-              </svg>
+              <img
+                src="/sbloom-logo.png"
+                alt="sBLOOM"
+                style={{ width: '84px', height: '84px', borderRadius: '50%', boxShadow: '0 8px 24px rgba(35, 28, 80, 0.15)' }}
+              />
             </div>
           </div>
         </div>
