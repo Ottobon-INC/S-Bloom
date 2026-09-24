@@ -97,6 +97,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 /* Ensure anchor jumps respect the sticky navbar height */
@@ -109,8 +110,14 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   line-height: 1.6;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Typography Hierarchy */
@@ -1326,8 +1333,8 @@ img {
 
 .gateway-redesign-card:hover {
   background: #E8E0F0;
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(35, 28, 80, 0.09);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(35, 28, 80, 0.12);
   border-color: rgba(199, 180, 234, 0.9);
 }
 
@@ -1512,6 +1519,7 @@ img {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  flex: 1; /* Stretch to fill parent wrapper */
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2438,10 +2446,20 @@ img {
   transition: var(--transition-normal);
 }
 
+.entity-card-expert {
+  --spotlight-color: rgba(198, 182, 235, 0.3); /* Lavender */
+  --card-border-hover: rgba(186, 164, 238, 0.7);
+}
+
+.entity-card-institution {
+  --spotlight-color: rgba(240, 156, 125, 0.3); /* Peach/Coral */
+  --card-border-hover: rgba(240, 156, 125, 0.75);
+}
+
 .entity-choice-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--color-coral);
+  border-color: var(--card-border-hover, var(--border-medium));
 }
 
 .entity-icon-circle {
@@ -2486,13 +2504,15 @@ img {
 
 .strategy-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: 52px;
   align-items: center;
 }
 
 .strategy-headline {
-  font-size: clamp(2.6rem, 4.8vw, 3.8rem);
+  font-size: clamp(2.4rem, 3.8vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   font-weight: 800;
   margin-bottom: 18px;
   color: var(--color-indigo);
@@ -2544,8 +2564,8 @@ img {
 
 .strategy-organic-tag {
   position: absolute;
-  top: 32px;
-  left: 32px;
+  bottom: 32px;
+  right: 32px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   padding: 12px 20px;
@@ -2983,6 +3003,89 @@ img {
   }
 }
 
+/* Synced Shine Animation Keyframes */
+@keyframes pillShine {
+  0% { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Industry Proof Pills */
+.industry-proof-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--bg-main);
+  /* The physical border is hidden so the animated ::before border shines through */
+  border: 1px solid transparent; 
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  /* Sync shine variables */
+  --shine-speed: 2.5s;
+  --shine-text-base: var(--text-primary);
+  --shine-text-glow: var(--color-coral);
+  --shine-border-base: var(--border-subtle);
+  --shine-border-glow: rgba(35, 28, 80, 0.25);
+}
+
+/* Border Shine Layer */
+.industry-proof-pill::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-pill);
+  padding: 1px; /* border thickness */
+  background: linear-gradient(
+    -75deg, 
+    var(--shine-border-base) 30%, 
+    var(--shine-border-glow) 50%, 
+    var(--shine-border-base) 70%
+  );
+  background-size: 200% auto;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: pillShine var(--shine-speed) linear infinite;
+  pointer-events: none;
+}
+
+/* Text Shine Layer */
+.industry-proof-pill span {
+  background: linear-gradient(
+    -75deg, 
+    var(--shine-text-base) 30%, 
+    var(--shine-text-glow) 50%, 
+    var(--shine-text-base) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pillShine var(--shine-speed) linear infinite;
+}
+
+/* Ensure Icon sits above the background safely */
+.industry-proof-pill svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover overrides for colors */
+.industry-proof-pill:hover {
+  background-color: var(--bg-peach);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+  --shine-text-base: var(--color-coral);
+  --shine-text-glow: #ffffff;
+  --shine-border-base: rgba(199, 75, 63, 0.3);
+  --shine-border-glow: var(--color-coral);
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2991,4 +3094,287 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Scroll Reveal Animations */
+.reveal-wrapper {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Social Flip Button Component
+   ========================================================================== */
+.social-flip-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.social-flip-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 12px;
+  padding: 8px 12px;
+  /* Deep footer theme styles */
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-flip-borders {
+  position: absolute;
+  top: -1px; left: -1px; right: -1px; bottom: -1px;
+  overflow: hidden;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.social-flip-border-top, .social-flip-border-bottom {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.social-flip-border-top { top: 0; left: 0; animation: slide-right 2.5s linear infinite; }
+.social-flip-border-bottom { bottom: 0; left: 0; animation: slide-left 2.5s linear infinite; }
+
+@keyframes slide-right {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+@keyframes slide-left {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+.social-flip-node-wrap {
+  position: relative;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.social-flip-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Sequential flip on group hover */
+.social-flip-group:hover .social-flip-node-wrap:nth-child(2) .social-flip-inner { transition-delay: 0.0s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(3) .social-flip-inner { transition-delay: 0.08s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(4) .social-flip-inner { transition-delay: 0.16s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(5) .social-flip-inner { transition-delay: 0.24s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(6) .social-flip-inner { transition-delay: 0.32s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(7) .social-flip-inner { transition-delay: 0.40s; transform: rotateY(180deg); }
+.social-flip-group:hover .social-flip-node-wrap:nth-child(8) .social-flip-inner { transition-delay: 0.48s; transform: rotateY(180deg); }
+
+/* Reset delays when not hovering so they flip back together nicely */
+.social-flip-node-wrap .social-flip-inner { transition-delay: 0s; }
+
+.social-flip-front {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  backface-visibility: hidden;
+}
+
+.social-flip-back {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: var(--bg-lavender);
+  color: var(--color-indigo);
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.social-flip-tooltip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 50;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-xl);
+  background-color: var(--bg-white);
+  color: var(--color-indigo);
+  opacity: 0;
+  transform: translate(-50%, 10px) scale(0.8);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+.social-flip-node-wrap:hover .social-flip-tooltip {
+  opacity: 1;
+  transform: translate(-50%, -46px) scale(1);
+}
+
+.social-flip-tooltip-arrow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  height: 8px;
+  width: 8px;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: var(--bg-white);
+}
+
+
+/* ==========================================================================
+   INDUSTRIES STRIP SECTION (HOME PAGE)
+   ========================================================================== */
+.industries-strip-section {
+  padding: 80px 0;
+  background-color: var(--bg-neutral);
+}
+
+.industries-strip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.industries-strip-header h2 {
+  color: var(--color-indigo);
+  margin-top: 8px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.industries-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .industries-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .industries-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.industry-preview-card {
+  display: block;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.industry-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.industry-preview-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.industry-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.industry-preview-card:hover .industry-preview-img {
+  transform: scale(1.05);
+}
+
+.industry-preview-body {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.industry-preview-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-indigo);
+}
+
+.industry-preview-footer-row {
+  margin-top: 32px;
+  padding: 24px 32px;
+  background-color: #FCEEE8; /* Peach tone matching image */
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-card);
+  padding: 36px 30px;
+  box-shadow: 0 8px 32px rgba(35, 28, 80, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+}
+
+.glass-card-light:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(35, 28, 80, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 1);
 }

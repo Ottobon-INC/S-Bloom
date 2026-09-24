@@ -22,7 +22,7 @@ export const IndustryLandingPage: React.FC = () => {
   const { industry } = useParams<{ industry: string }>();
 
   if (!industry || !INDUSTRIES_DATA[industry]) {
-    return <Navigate to="/industries" replace />;
+    return <Navigate to="/" replace />;
   }
 
   const data = INDUSTRIES_DATA[industry];
@@ -57,18 +57,22 @@ export const IndustryLandingPage: React.FC = () => {
   return (
     <div className="industry-landing-page">
       {/* SCREEN 03: INDUSTRY LANDING */}
-      <section className="industry-landing-hero">
-        <div className="container">
-
-
-          <div className="industry-landing-grid">
-            <div>
-              <span className="eyebrow">WELCOME TO</span>
-              <h1 className="industry-landing-title">{data.landingHeadline}</h1>
-              <p className="hero-description">{data.landingDescription}</p>
+      <section className="industry-landing-hero" style={{ padding: '100px 0 120px', backgroundColor: 'var(--bg-main)', borderBottom: '1px solid var(--border-subtle)' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="industry-landing-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.2fr', gap: '64px', alignItems: 'center' }}>
+            
+            {/* Left Content Column */}
+            <div style={{ paddingRight: '20px' }}>
+              <span className="eyebrow" style={{ display: 'inline-block', marginBottom: '16px', color: 'var(--text-secondary)' }}>WELCOME TO</span>
+              <h1 className="industry-landing-title" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)', marginBottom: '24px', letterSpacing: '-0.02em', color: 'var(--color-indigo)' }}>
+                {data.landingHeadline}
+              </h1>
+              <p className="hero-description" style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '40px' }}>
+                {data.landingDescription}
+              </p>
 
               {/* 4 Feature / Proof Pill Badges (Screen 03) */}
-              <div className="industry-proof-badges-row">
+              <div className="industry-proof-badges-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 {data.proofBadges.map((badge) => (
                   <div key={badge.label} className="industry-proof-pill">
                     {getProofIcon(badge.iconName)}
@@ -78,28 +82,29 @@ export const IndustryLandingPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="industry-landing-visual">
+            {/* Right Visual Column */}
+            <div className="industry-landing-visual" style={{ position: 'relative', borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
               <img
                 src={data.landingImageUrl}
                 alt={`Welcome to ${data.title}`}
                 className="industry-landing-img"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', aspectRatio: '4/3' }}
               />
+              {/* Premium Floating Tag */}
               <div
                 style={{
                   position: 'absolute',
-                  top: '28px',
-                  right: '28px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  backdropFilter: 'blur(8px)',
-                  padding: '12px 18px',
-                  borderRadius: 'var(--radius-lg)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  gap: '2px'
+                  bottom: '32px',
+                  right: '32px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(12px)',
+                  padding: '14px 24px',
+                  borderRadius: 'var(--radius-pill)',
+                  boxShadow: '0 8px 32px rgba(35, 28, 80, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)'
                 }}
               >
-                <span className="script-text" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+                <span className="script-text" style={{ fontSize: '1.35rem', color: 'var(--color-indigo)' }}>
                   {industry === 'healthcare'
                     ? 'People · Care · Expertise · Growth'
                     : industry === 'education'
@@ -126,7 +131,7 @@ export const IndustryLandingPage: React.FC = () => {
             {/* Card 1: I'm an Expert */}
             <Link
               to={`/industries/${industry}/expert`}
-              className="entity-choice-card"
+              className="entity-choice-card entity-card-expert card-spotlight"
               id="choice-expert"
             >
               <div className="entity-icon-circle entity-icon-expert">
@@ -144,7 +149,7 @@ export const IndustryLandingPage: React.FC = () => {
             {/* Card 2: We're an Institution */}
             <Link
               to={`/industries/${industry}/institution`}
-              className="entity-choice-card"
+              className="entity-choice-card entity-card-institution card-spotlight"
               id="choice-institution"
             >
               <div className="entity-icon-circle entity-icon-institution">

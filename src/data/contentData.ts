@@ -51,7 +51,7 @@ export interface PartnerRole {
 export const SERVICE_PILLARS: ServicePillar[] = [
   {
     num: '01',
-    title: 'BUILD',
+    title: 'PRESENCE',
     subtitle: 'Build your digital presence and make your business easy to find.',
     deliverables: [
       'SEO & Search Visibility',
@@ -62,7 +62,7 @@ export const SERVICE_PILLARS: ServicePillar[] = [
   },
   {
     num: '02',
-    title: 'CREATE',
+    title: 'STORYTELLING',
     subtitle: 'Create content and communication that people understand and remember.',
     deliverables: [
       'Content Strategy & Ideation',
@@ -73,7 +73,7 @@ export const SERVICE_PILLARS: ServicePillar[] = [
   },
   {
     num: '03',
-    title: 'PROMOTE',
+    title: 'AMPLIFY',
     subtitle: 'Put your brand in front of the right audience.',
     deliverables: [
       'Meta Ads',
@@ -100,7 +100,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
       { label: 'Growth', iconName: 'TrendingUp' }
     ],
     imageUrl: '/industry-healthcare.jpg',
-    landingImageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1000&q=85',
+    landingImageUrl: '/industry-healthcare-hero.jpg',
     quote: 'Every medical breakthrough begins with trust. We help you share clinical mastery with warmth and authority.'
   },
   education: {
@@ -118,7 +118,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
       { label: 'Outcomes', iconName: 'TrendingUp' }
     ],
     imageUrl: '/industry-education.jpg',
-    landingImageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=85',
+    landingImageUrl: '/edu_landing_image.png',
     quote: 'Knowledge is transformative only when it is understood. We help educators inspire a global audience.'
   },
   consulting: {
@@ -136,7 +136,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
       { label: 'Valuation', iconName: 'TrendingUp' }
     ],
     imageUrl: '/industry-consulting.jpg',
-    landingImageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=85',
+    landingImageUrl: '/const2_image.png',
     quote: 'Consulting excellence is built on differentiated insights. We turn strategic methodologies into market authority.'
   }
 };
@@ -158,13 +158,13 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
       'Thought Leadership Articles & Clinical Publications'
     ],
     organicTag: 'Your Knowledge. More Impact.',
-    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/doc_expert.png'
   },
   'healthcare-institution': {
     industryId: 'healthcare',
     entityType: 'institution',
     badge: 'HEALTHCARE | INSTITUTION',
-    headline: 'Institutional Scale. Uncompromised Care.',
+    headline: 'Make Your Hospital Visible. Make Your Services Discoverable.',
     description: 'We partner with hospitals, multi-specialty clinics, and health systems to elevate institutional reputation, highlight clinical departments, and drive patient acquisition.',
     checklist: [
       'Hospital & Department Brand Architecture',
@@ -175,7 +175,7 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
       'Accreditation & Community Impact Showcase'
     ],
     organicTag: 'Scale Care. Inspire Trust.',
-    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/healthcare_inst.png'
   },
   'education-expert': {
     industryId: 'education',
@@ -192,13 +192,13 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
       'Keynote & Media Placement Strategy'
     ],
     organicTag: 'Ideas That Teach. Voices That Guide.',
-    imageUrl: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/edu_expert.png'
   },
   'education-institution': {
     industryId: 'education',
     entityType: 'institution',
     badge: 'EDUCATION | INSTITUTION',
-    headline: 'Empower Next-Generation Learning.',
+    headline: 'Make Your Institution Stand Out. Reach the Right Students.',
     description: 'For universities, colleges, K-12 academies, and edtech organizations looking to attract ambitious students, foster alumni giving, and lead higher-ed discourse.',
     checklist: [
       'Student Recruitment & Enrollment Inbound Engines',
@@ -209,24 +209,24 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
       'Alumni Engagement & Foundation Storytelling'
     ],
     organicTag: 'Brighter Minds. Stronger Future.',
-    imageUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/institute_image.png'
   },
   'consulting-expert': {
     industryId: 'consulting',
     entityType: 'expert',
     badge: 'CONSULTING | EXPERT',
-    headline: 'High-Trust Authority for Elite Advisors.',
-    description: 'For independent management consultants, executive coaches, and boutique founders seeking to command premium retainer fees and attract board-level clients.',
+    headline: 'Turn Expertise Into Authority. Build a Brand That Blooms.',
+    description: 'For consultants, founders, advisors, and ambitious professionals looking to position their expertise, build a credible digital presence, and attract high-value opportunities.',
     checklist: [
-      'Executive Brand & C-Suite Advisory Positioning',
-      'Proprietary Framework & IP Productization',
-      'Executive Video Briefings & Insight Breakdowns',
-      'LinkedIn Thought Leadership & Executive Ghostwriting',
-      'High-Ticket Client Inbound Funnels',
-      'Industry Whitepapers & Keynote Presentation Kits'
+      'Strategic Brand Positioning & Expert Authority',
+      'Signature Frameworks, IP & Knowledge Productization',
+      'Executive Video Content & Insight-Led Storytelling',
+      'LinkedIn Thought Leadership & Personal Brand Content',
+      'Lead Generation & High-Value Client Acquisition',
+      'Industry Content, Whitepapers & Presentation Assets'
     ],
     organicTag: 'Strategic Clarity. Unmatched Authority.',
-    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/consulent_image.png'
   },
   'consulting-institution': {
     industryId: 'consulting',
@@ -243,7 +243,7 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
       'Talent Brand & Senior Consultant Recruitment'
     ],
     organicTag: 'Advisory Prestige. Sustainable Growth.',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85'
+    imageUrl: '/const_inst.png'
   }
 };
 

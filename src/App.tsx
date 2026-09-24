@@ -7,7 +7,6 @@ import { ConsultationModal } from './components/common/ConsultationModal';
 
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
-import { IndustrySelectionPage } from './pages/IndustrySelectionPage';
 import { IndustryLandingPage } from './pages/IndustryLandingPage';
 import { EntitySelectionPage } from './pages/EntitySelectionPage';
 import { TailoredStrategyPage } from './pages/TailoredStrategyPage';
@@ -33,7 +32,7 @@ export function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="app-layout" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div className="app-layout">
         <Navbar onOpenConsultation={() => handleOpenConsultation()} />
 
         <main style={{ flex: 1 }}>
@@ -49,9 +48,6 @@ export function App() {
               path="/services"
               element={<ServicesPage onOpenConsultation={handleOpenConsultation} />}
             />
-
-            {/* Screen 02: Industry Selection */}
-            <Route path="/industries" element={<IndustrySelectionPage />} />
 
             {/* Screen 03 & 04: Industry Landing (Healthcare / Education / Consulting) */}
             <Route path="/industries/:industry" element={<IndustryLandingPage />} />

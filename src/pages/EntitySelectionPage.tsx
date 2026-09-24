@@ -8,7 +8,7 @@ export const EntitySelectionPage: React.FC = () => {
   const { industry } = useParams<{ industry: string }>();
 
   if (!industry || !INDUSTRIES_DATA[industry]) {
-    return <Navigate to="/industries" replace />;
+    return <Navigate to="/" replace />;
   }
 
   const indData = INDUSTRIES_DATA[industry];
@@ -32,7 +32,7 @@ export const EntitySelectionPage: React.FC = () => {
           {/* Card 1: Expert */}
           <Link
             to={`/industries/${industry}/expert`}
-            className="entity-choice-card"
+            className="entity-choice-card entity-card-expert card-spotlight"
             id="standalone-choice-expert"
           >
             <div className="entity-icon-circle entity-icon-expert">
@@ -50,7 +50,7 @@ export const EntitySelectionPage: React.FC = () => {
           {/* Card 2: Institution */}
           <Link
             to={`/industries/${industry}/institution`}
-            className="entity-choice-card"
+            className="entity-choice-card entity-card-institution card-spotlight"
             id="standalone-choice-institution"
           >
             <div className="entity-icon-circle entity-icon-institution">

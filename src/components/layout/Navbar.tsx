@@ -88,20 +88,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     },
     {
       label: 'Industries',
-      href: '/industries',
+      href: '/',
       dropdown: [
         {
           title: 'Healthcare Sector',
           subtitle: 'Practice growth, clinics & patient trust',
           href: '/industries/healthcare',
           icon: Heart
-        },
-        {
-          title: 'Doctor & Specialist Branding',
-          subtitle: 'Personal reputation for specialized surgeons & physicians',
-          href: '/industries/healthcare/expert',
-          icon: UserCheck,
-          badge: 'High Impact'
         },
         {
           title: 'Education Sector',
@@ -118,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       ],
       featuredLink: {
         label: 'Compare All Industry Models →',
-        href: '/industries'
+        href: '/'
       }
     },
     {
@@ -360,7 +353,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                                       <span className="nav-dropdown-badge">{sub.badge}</span>
                                     )}
                                   </div>
-                                  <p className="nav-dropdown-subtext">{sub.subtitle}</p>
                                 </div>
                                 <ArrowRight size={14} className="nav-dropdown-arrow" />
                               </Link>
@@ -458,7 +450,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                                   </div>
                                   <div>
                                     <div className="mobile-sub-title">{sub.title}</div>
-                                    <div className="mobile-sub-desc">{sub.subtitle}</div>
                                   </div>
                                 </Link>
                               );

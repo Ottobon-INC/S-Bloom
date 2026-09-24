@@ -21,7 +21,7 @@ export const TailoredStrategyPage: React.FC<TailoredStrategyPageProps> = ({
   const industryInfo = industry ? INDUSTRIES_DATA[industry] : null;
 
   if (!strategy || !industryInfo) {
-    return <Navigate to="/industries" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (
@@ -69,16 +69,13 @@ export const TailoredStrategyPage: React.FC<TailoredStrategyPageProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Visual Card with Organic Script Badge */}
-            <div className="strategy-visual-card">
+            {/* Right Column: Visual Card without the message badge */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
               <img
                 src={strategy.imageUrl}
                 alt={strategy.headline}
-                className="strategy-visual-img"
+                style={{ objectFit: 'cover', width: '100%', height: 'auto', maxHeight: '600px', borderRadius: '16px', boxShadow: '0 12px 32px rgba(0,0,0,0.08)' }}
               />
-              <div className="strategy-organic-tag">
-                <span>{strategy.organicTag}</span>
-              </div>
             </div>
           </div>
         </div>

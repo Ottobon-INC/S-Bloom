@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GenerateButton } from '../common/GenerateButton';
+import SocialFlipButton from '../common/SocialFlipButton';
 import { ArrowRight } from 'lucide-react';
 
 interface FooterProps {
@@ -24,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
             <p className="footer-brand-bio">
               Industry-specific marketing and growth partner for Healthcare, Education and Consulting. We build authoritative presence, craft compelling communication, and drive measurable practice growth.
             </p>
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px' }}>
               <GenerateButton
                 onClick={onOpenConsultation}
                 palette="indigo"
@@ -42,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
               <li><Link to="/industries/healthcare">Healthcare Growth</Link></li>
               <li><Link to="/industries/education">Education & Academies</Link></li>
               <li><Link to="/industries/consulting">Strategic Consulting</Link></li>
-              <li><Link to="/industries">All Industry Gateways</Link></li>
+              <li><Link to="/">All Industry Gateways</Link></li>
             </ul>
           </div>
 
@@ -72,12 +73,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <p>&copy; {new Date().getFullYear()} sBLOOM Marketing Partner. All rights reserved.</p>
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <span>Healthcare</span>
-            <span>&bull;</span>
-            <span>Education</span>
-            <span>&bull;</span>
-            <span>Consulting</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <span>Healthcare</span>
+              <span>&bull;</span>
+              <span>Education</span>
+              <span>&bull;</span>
+              <span>Consulting</span>
+            </div>
+            <SocialFlipButton className="!p-0" />
           </div>
         </div>
       </div>

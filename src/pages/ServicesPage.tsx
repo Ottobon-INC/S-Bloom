@@ -160,7 +160,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                 icon={<ArrowRight size={16} />}
               />
               <GenerateButton
-                onClick={() => navigate('/industries')}
+                onClick={() => navigate('/')}
                 palette="peach"
                 text="Explore Industries"
                 showIcon={false}
@@ -322,7 +322,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
               icon={<ArrowRight size={16} />}
             />
             <GenerateButton
-              onClick={() => navigate('/industries')}
+              onClick={() => navigate('/')}
               palette="peach"
               style={{ padding: '14px 32px' }}
               text="Choose Your Industry"
