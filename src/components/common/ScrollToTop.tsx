@@ -21,7 +21,8 @@ export const ScrollToTop = () => {
       }, 120);
       return () => clearTimeout(scrollTimer);
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Use 'instant' to override any CSS smooth scrolling, or fall back to simple scrollTo
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [pathname, hash]);
 

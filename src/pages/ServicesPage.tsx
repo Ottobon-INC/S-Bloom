@@ -87,7 +87,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
   return (
     <div className="services-page">
       {/* Hero Section */}
-      <section className="section bg-hero-gradient organic-blob-wrapper" style={{ padding: '60px 0 70px' }}>
+      <section className="section bg-hero-gradient organic-blob-wrapper" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '120px 0 100px' }}>
         <div className="organic-shape-glow glow-peach" style={{ width: '420px', height: '420px', top: '-10%', right: '8%' }} />
         <div className="organic-shape-glow glow-lavender" style={{ width: '360px', height: '360px', bottom: '0', left: '5%' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>

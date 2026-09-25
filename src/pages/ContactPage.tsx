@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Mail, MapPin, Phone } from 'lucide-react';
 
 
 export const ContactPage: React.FC = () => {
@@ -24,41 +24,77 @@ export const ContactPage: React.FC = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: '56px', alignItems: 'start', marginTop: '20px' }}>
           {/* Left Column: Contact Details & Reassurance */}
           <div>
-            <span className="eyebrow">START A CONVERSATION</span>
-            <h1 className="hero-headline" style={{ fontSize: 'clamp(2.6rem, 4.5vw, 3.8rem)' }}>
-              Let's grow <br />
-              <span className="editorial-italic" style={{ color: 'var(--color-coral)' }}>together.</span>
+            <div style={{ display: 'inline-block', padding: '6px 12px', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.05)', marginBottom: '16px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '1.2px', color: 'var(--color-indigo)', textTransform: 'uppercase' }}>Get in Touch</span>
+            </div>
+            <h1 className="hero-headline" style={{ fontSize: 'clamp(2.4rem, 4vw, 3.4rem)', lineHeight: 1.1, marginBottom: '20px' }}>
+              Ready to <span className="editorial-italic" style={{ color: 'var(--color-coral)' }}>scale</span> your impact?
             </h1>
-            <p className="hero-description" style={{ fontSize: '1.12rem', marginBottom: '36px' }}>
-              Whether you are an individual doctor, faculty leader, senior consultant, or institution looking to elevate practice reach, we would love to connect.
+            <p className="hero-description" style={{ fontSize: '1.1rem', marginBottom: '40px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+              Whether you are an expert, clinic, or academic institution, we provide the production team to amplify your voice. Reach out and let's explore what we can build together.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'var(--bg-lavender)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-indigo)' }}>
                   <Mail size={20} />
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Direct Inquiries</span>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Email Us</span>
                   <p style={{ fontWeight: 600, color: 'var(--color-indigo)', margin: 0 }}>growth@sbloom.co</p>
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'var(--bg-peach)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-coral)' }}>
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Call Us</span>
+                  <p style={{ fontWeight: 600, color: 'var(--color-indigo)', margin: 0 }}>+91 00000 00000</p>
+                </div>
+              </div>
+
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=A+Square+Business+Centre,+Waltair+Main+Road,+Visakhapatnam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', textDecoration: 'none', transition: 'transform 0.2s', cursor: 'pointer' }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'var(--accent-pale-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-indigo)', flexShrink: 0 }}>
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Creative Studios</span>
-                  <p style={{ fontWeight: 600, color: 'var(--color-indigo)', margin: 0 }}>Remote Global &middot; Studios in London &amp; New York</p>
+                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Visit Us</span>
+                  <p style={{ fontWeight: 600, color: 'var(--color-indigo)', margin: '0 0 4px', lineHeight: 1.4 }}>
+                    Suite 102, 1st Floor, A Square Business Centre<br />
+                    Waltair Main Road, Waltair Uplands, Chinawaltair<br />
+                    (next to Lifestyle Stores), Visakhapatnam<br />
+                    Andhra Pradesh 530003
+                  </p>
                 </div>
-              </div>
+              </a>
             </div>
 
-            <div style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-card)', padding: '24px 28px', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-xs)' }}>
-              <span className="editorial-italic" style={{ fontSize: '1.15rem', color: 'var(--color-indigo)' }}>
-                "We respect clinical ethics, academic standards, and executive confidentiality in all client engagements."
-              </span>
+            <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)', height: '240px', background: 'var(--bg-white)', position: 'relative' }}>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=A+Square+Business+Centre,+Waltair+Main+Road,+Visakhapatnam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10, cursor: 'pointer' }}
+                title="Open in Google Maps"
+              ></a>
+              <iframe
+                src={`https://maps.google.com/maps?q=${encodeURIComponent('A Square Business Centre, Waltair Main Road, Visakhapatnam')}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                width="100%"
+                height="100%"
+                style={{ border: 0, pointerEvents: 'none' }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
 
