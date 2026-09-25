@@ -31,19 +31,16 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="about-page">
       {/* Hero Section / Mission */}
-      <section id="mission" className="section bg-hero-gradient organic-blob-wrapper" style={{ padding: '60px 0 70px' }}>
-        <div className="organic-shape-glow glow-peach" style={{ width: '400px', height: '400px', top: '-10%', right: '8%' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-
-
-          <div style={{ maxWidth: '780px', margin: '20px auto 0', textAlign: 'center' }}>
-            <span className="eyebrow">OUR STORY & VISION</span>
-            <h1 className="hero-headline" style={{ fontSize: 'clamp(2.6rem, 4.8vw, 3.8rem)' }}>
-              Different journeys. <br />
-              <span className="editorial-italic" style={{ color: 'var(--color-coral)' }}>A shared purpose.</span>
+      <section id="mission" className="section bg-hero-gradient organic-blob-wrapper" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '120px 0 100px', textAlign: 'center' }}>
+        <div className="organic-shape-glow glow-peach" style={{ width: '500px', height: '500px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.6 }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h1 className="hero-headline" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.2rem)', lineHeight: 1.1, marginBottom: '24px', color: 'var(--color-indigo)' }}>
+              We help you <span className="editorial-italic" style={{ color: 'var(--color-coral)' }}>share your story</span> with the world.
             </h1>
-            <p className="hero-description" style={{ margin: '0 auto', fontSize: '1.15rem' }}>
-              sBLOOM was founded on a simple observation: the world's most vital thinkers—doctors, educators, and strategic advisors—often lack the time or production infrastructure to tell their story at scale. We bridge that gap.
+            
+            <p className="hero-description" style={{ fontSize: '1.25rem', lineHeight: 1.6, color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
+              Doctors, educators, and advisors have vital knowledge but often lack the time or tools to share it. We provide the production team to bridge that gap and amplify your voice.
             </p>
           </div>
         </div>
@@ -53,7 +50,6 @@ export const AboutPage: React.FC = () => {
       <section id="standard" className="section" style={{ backgroundColor: 'var(--color-indigo)', color: '#FFFFFF' }}>
         <div className="container">
           <div className="section-header-centered">
-            <span className="eyebrow" style={{ color: 'var(--bg-peach)' }}>GUIDING PRINCIPLES</span>
             <h2 style={{ fontSize: '2.4rem', color: '#FFFFFF' }}>How We Create Real Growth</h2>
             <p style={{ marginTop: '8px', color: 'rgba(255,255,255,0.7)' }}>
               Built from the ground up to respect high-trust, regulated industries.

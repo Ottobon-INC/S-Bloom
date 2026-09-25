@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     },
     {
       label: 'Industries',
-      href: '/',
+      href: '/industries',
       dropdown: [
         {
           title: 'Healthcare Sector',
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
       ],
       featuredLink: {
         label: 'Compare All Industry Models →',
-        href: '/'
+        href: '/industries'
       }
     },
     {
@@ -152,31 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     },
     {
       label: 'About',
-      href: '/about',
-      dropdown: [
-        {
-          title: 'Who We Are',
-          subtitle: 'Our philosophy, team, and editorial growth approach',
-          href: '/about',
-          icon: Building2
-        },
-        {
-          title: 'The Editorial Standard',
-          subtitle: 'High-trust, noise-free communication guidelines',
-          href: '/about#standard',
-          icon: CheckCircle2
-        },
-        {
-          title: 'Studio Infrastructure',
-          subtitle: 'Acoustic design, cinema cameras & production rooms',
-          href: '/about#infrastructure',
-          icon: Radio
-        }
-      ],
-      featuredLink: {
-        label: 'Read The sBLOOM Story →',
-        href: '/about'
-      }
+      href: '/about'
     },
     {
       label: 'Contact',
@@ -264,14 +240,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
     <>
       {/* Main Global Header */}
       <header className="site-header" ref={navRef}>
-        <div className="container nav-container">
+        <div className="nav-container">
           {/* Logo */}
           <Link to="/" className="brand-logo-wrap" aria-label="sBLOOM Home" onClick={() => handleLinkClick('/')}>
-            <img
-              src="/sbloom-logo.png"
-              alt="sBLOOM"
-              className="brand-logo-img"
-            />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--color-indigo)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF' }}>
+                <Sparkles size={20} />
+              </div>
+              <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-indigo)', letterSpacing: '-0.5px' }}>sBLOOM</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links with Dropdown Panels */}
@@ -294,7 +271,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                         <Link
                           to={item.href}
                           className={`nav-link ${active ? 'active' : ''} ${isOpen ? 'menu-open' : ''}`}
-                          onClick={() => handleLinkClick(item.href)}
+                          onClick={(e) => {
+                            if (item.href === '/industries') {
+                              e.preventDefault();
+                              setActiveDropdown(isOpen ? null : item.label);
+                            } else {
+                              handleLinkClick(item.href);
+                            }
+                          }}
                         >
                           <span>{item.label}</span>
                         </Link>
@@ -383,11 +367,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           <div className="nav-actions">
             <button
               onClick={onOpenConsultation}
-              className="btn btn-indigo"
+              className="btn"
               id="header-cta-talk"
+              style={{ borderRadius: '9999px', padding: '10px 24px', backgroundColor: '#2563EB', color: '#FFF', textTransform: 'uppercase', letterSpacing: '0.02em', fontSize: '0.85rem' }}
             >
-              <span>Let's Talk</span>
-              <ArrowRight size={16} />
+              <span>GET STARTED</span>
             </button>
 
             <button
@@ -417,7 +401,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                           <Link
                             to={item.href}
                             className="mobile-direct-link-flex"
-                            onClick={() => handleLinkClick(item.href)}
+                            onClick={(e) => {
+                              if (item.href === '/industries') {
+                                e.preventDefault();
+                                setMobileExpanded(isExpanded ? null : item.label);
+                              } else {
+                                handleLinkClick(item.href);
+                              }
+                            }}
                           >
                             <span>{item.label}</span>
                           </Link>
@@ -477,10 +468,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                     onOpenConsultation();
                   }}
                   className="btn btn-indigo"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  style={{ width: '100%', justifyContent: 'center', borderRadius: '9999px', padding: '12px 24px', backgroundColor: '#2563EB', color: '#FFF', textTransform: 'uppercase' }}
                 >
-                  <span>Let's Talk</span>
-                  <ArrowRight size={16} />
+                  <span>GET STARTED</span>
                 </button>
               </div>
             </div>

@@ -44,7 +44,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
   return (
     <div className="home-page">
       {/* 01: REDESIGNED HERO SECTION (Screen 01 Reference) */}
-      <section className="hero-editorial bg-hero-gradient organic-blob-wrapper" id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 80px)', display: 'flex', alignItems: 'center' }}>
+      <section className="hero-editorial bg-hero-gradient organic-blob-wrapper" id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '85vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Soft Organic Atmospheric Glows */}
         <div className="organic-shape-glow glow-peach" style={{ width: '460px', height: '460px', top: '-8%', right: '5%' }} />
         <div className="organic-shape-glow glow-lavender" style={{ width: '420px', height: '420px', bottom: '2%', left: '4%' }} />
