@@ -57,7 +57,7 @@ export const IndustryLandingPage: React.FC = () => {
   return (
     <div className="industry-landing-page">
       {/* SCREEN 03: INDUSTRY LANDING */}
-      <section className="industry-landing-hero" style={{ padding: '100px 0 120px', backgroundColor: 'var(--bg-main)', borderBottom: '1px solid var(--border-subtle)' }}>
+      <section className="industry-landing-hero" style={{ padding: '100px 0 120px', backgroundColor: 'var(--bg-main)', borderBottom: '1px solid var(--border-subtle)', minHeight: 'calc(100vh - 80px)' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center' }}>
           <div className="industry-landing-grid" style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.2fr', gap: '64px', alignItems: 'center' }}>
             
@@ -106,9 +106,9 @@ export const IndustryLandingPage: React.FC = () => {
               >
                 <span className="script-text" style={{ fontSize: '1.35rem', color: 'var(--color-indigo)' }}>
                   {industry === 'healthcare'
-                    ? 'People · Care · Expertise · Growth'
+                    ? 'People · Care · Expertise · Trust'
                     : industry === 'education'
-                    ? 'Minds · Pedagogy · Reach · Impact'
+                    ? 'Learning · Teaching · Reach · Impact'
                     : 'Insight · Authority · Advisory · Scale'}
                 </span>
               </div>
@@ -121,9 +121,15 @@ export const IndustryLandingPage: React.FC = () => {
       <section className="entity-selection-section" id="choose-entity">
         <div className="container">
           <div className="section-header-centered" style={{ marginBottom: '40px' }}>
-            <span className="eyebrow">WHO ARE YOU?</span>
+            <span className="eyebrow">{industry === 'healthcare' || industry === 'education' ? "LET'S START WITH YOU" : "WHO ARE YOU?"}</span>
             <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)' }}>
-              Choose the option that best describes you so we can tailor the right strategy.
+              {industry === 'healthcare'
+                ? "Tell us what best describes your healthcare business, and we'll show you the right strategy."
+                : industry === 'education'
+                ? "Tell us what best describes your education business or institution, and we'll show you the right strategy."
+                : industry === 'consulting'
+                ? "Choose the option that best describes your business so we can tailor the right strategy."
+                : "Choose the option that best describes you so we can tailor the right strategy."}
             </p>
           </div>
 
@@ -139,7 +145,13 @@ export const IndustryLandingPage: React.FC = () => {
               </div>
               <h3 className="entity-choice-title">I'm an Expert</h3>
               <p className="entity-choice-desc">
-                Build your presence, establish authority, and share your expertise.
+                {industry === 'healthcare'
+                  ? "Share your expertise, build trust, and help the right people find you."
+                  : industry === 'education'
+                  ? "Share your expertise, build trust, and help the right learners find you."
+                  : industry === 'consulting'
+                  ? "Share your expertise, explain what you do, and help the right people find you."
+                  : "Build your presence, establish authority, and share your expertise."}
               </p>
               <div className="btn-circle btn-circle-indigo">
                 <ArrowRight size={20} />
@@ -155,9 +167,17 @@ export const IndustryLandingPage: React.FC = () => {
               <div className="entity-icon-circle entity-icon-institution">
                 <Building2 size={36} />
               </div>
-              <h3 className="entity-choice-title">We're an Institution</h3>
+              <h3 className="entity-choice-title">
+                We're an Organization
+              </h3>
               <p className="entity-choice-desc">
-                Showcase your facilities, highlight your team, and grow your organization.
+                {industry === 'healthcare'
+                  ? "Showcase your services, people, and facilities while reaching the right audience."
+                  : industry === 'education'
+                  ? "Showcase your programs, people, and campus while reaching the right audience."
+                  : industry === 'consulting'
+                  ? "Showcase your team, expertise, services, and work."
+                  : "Showcase your facilities, highlight your team, and grow your organization."}
               </p>
               <div className="btn-circle btn-circle-indigo">
                 <ArrowRight size={20} />
@@ -166,6 +186,46 @@ export const IndustryLandingPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* DYNAMIC POSSIBILITIES SECTION */}
+      {data.possibilitiesSection && (
+        <section className="possibilities-section" style={{ padding: '80px 0', borderTop: '1px solid var(--border-subtle)', backgroundColor: 'var(--bg-main)' }}>
+          <div className="container">
+            <div className="section-header-centered" style={{ marginBottom: '48px', textAlign: 'center' }}>
+              <span className="eyebrow" style={{ color: 'var(--color-coral)' }}>{data.possibilitiesSection.eyebrow}</span>
+              <h2 className="heading-serif" style={{ fontSize: '2.4rem', marginTop: '6px' }}>
+                {data.possibilitiesSection.headline}
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', marginTop: '16px', maxWidth: '600px', margin: '16px auto 0' }}>
+                {data.possibilitiesSection.description}
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+              {data.possibilitiesSection.possibilities.map((possibility, index) => (
+                <div key={index} className="bcp-card card-spotlight" style={{ padding: '32px', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ marginBottom: '16px' }}>
+                    <span className="bcp-num">{possibility.num}</span>
+                  </div>
+                  <h3 className="bcp-card-title" style={{ fontSize: '1.25rem', marginBottom: '12px' }}>{possibility.title}</h3>
+                  <p className="bcp-card-desc" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>{possibility.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: '64px', display: 'flex', justifyContent: 'center' }}>
+              <a
+                href="#choose-entity"
+                className="btn btn-dark"
+                style={{ padding: '16px 36px', fontSize: '1.05rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <span>Let's Tailor Your Strategy</span>
+                <ArrowRight size={18} />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

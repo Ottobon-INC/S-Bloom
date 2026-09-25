@@ -22,6 +22,16 @@ export interface IndustryConfig {
   imageUrl: string;
   landingImageUrl: string;
   quote: string;
+  possibilitiesSection?: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    possibilities: {
+      num: string;
+      title: string;
+      description: string;
+    }[];
+  };
 }
 
 export interface TailoredStrategyConfig {
@@ -33,6 +43,16 @@ export interface TailoredStrategyConfig {
   checklist: string[];
   organicTag: string;
   imageUrl: string;
+  possibilitiesSection?: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    possibilities: {
+      num: string;
+      title: string;
+      description: string;
+    }[];
+  };
 }
 
 export interface PartnerWorkflowStep {
@@ -51,34 +71,34 @@ export interface PartnerRole {
 export const SERVICE_PILLARS: ServicePillar[] = [
   {
     num: '01',
-    title: 'PRESENCE',
-    subtitle: 'Build your digital presence and make your business easy to find.',
+    title: 'GET FOUND',
+    subtitle: 'Help people find your business online and understand what you offer.',
     deliverables: [
       'SEO & Search Visibility',
-      'Google Business Profile Optimization',
-      'High-Performance Authority Website',
-      'Social Media Foundation & Profiles'
+      'Google Business Profile',
+      'Website',
+      'Social Media Profiles'
     ]
   },
   {
     num: '02',
-    title: 'STORYTELLING',
-    subtitle: 'Create content and communication that people understand and remember.',
+    title: 'TELL YOUR STORY',
+    subtitle: 'Create clear content that helps people understand your business and remember you.',
     deliverables: [
-      'Content Strategy & Ideation',
-      'Social Media Content Systems',
-      'Video Production & Simplified Explainers',
-      'Ad Creative & Multi-Format Assets'
+      'Content Ideas & Planning',
+      'Social Media Content',
+      'Videos & Explainer Content',
+      'Ad Creatives'
     ]
   },
   {
     num: '03',
-    title: 'AMPLIFY',
-    subtitle: 'Put your brand in front of the right audience.',
+    title: 'REACH THE RIGHT PEOPLE',
+    subtitle: 'Get your business in front of the right people through online advertising and partnerships.',
     deliverables: [
       'Meta Ads',
       'Google Ads',
-      'Influencer Collabs'
+      'Influencer Partnerships'
     ]
   }
 ];
@@ -88,16 +108,16 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
   healthcare: {
     id: 'healthcare',
     title: 'Healthcare',
-    tagline: 'Build Patient Trust & Grow Your Practice',
+    tagline: 'Build Patient Trust & Strengthen Your Practice',
     landingHeadline: 'Healthcare',
-    landingDescription: 'We help healthcare professionals and organizations build patient trust, strengthen visibility, and sustainably grow their practice.',
+    landingDescription: 'We help healthcare professionals and organizations build trust, tell their story, and reach the right people.',
     cardHeadline: 'Build Trust. Share Your Expertise.',
     cardDescription: 'Create content that helps patients understand your services and get to know your practice.',
     proofBadges: [
       { label: 'Patients', iconName: 'Heart' },
       { label: 'Procedures', iconName: 'FileText' },
       { label: 'Awareness', iconName: 'Users' },
-      { label: 'Growth', iconName: 'TrendingUp' }
+      { label: 'Trust', iconName: 'ShieldCheck' }
     ],
     imageUrl: '/industry-healthcare.jpg',
     landingImageUrl: '/industry-healthcare-hero.jpg',
@@ -108,7 +128,7 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
     title: 'Education',
     tagline: 'Attract Students & Showcase Academic Excellence',
     landingHeadline: 'Education',
-    landingDescription: 'We help schools, universities, and educators attract students, showcase academic programs, and build thought leadership.',
+    landingDescription: 'We help schools, universities, and educators showcase what they offer, connect with the right audiences, and build trust.',
     cardHeadline: 'Showcase What Makes Your Institution Special.',
     cardDescription: 'Highlight your programs, faculty, campus, and learning experience to connect with students and families.',
     proofBadges: [
@@ -119,21 +139,58 @@ export const INDUSTRIES_DATA: Record<string, IndustryConfig> = {
     ],
     imageUrl: '/industry-education.jpg',
     landingImageUrl: '/edu_landing_image.png',
-    quote: 'Knowledge is transformative only when it is understood. We help educators inspire a global audience.'
+    quote: 'Knowledge is transformative only when it is understood. We help educators inspire a global audience.',
+    possibilitiesSection: {
+      eyebrow: 'EDUCATION STORIES',
+      headline: 'Your education story has something worth sharing.',
+      description: 'From programs and educators to student experiences and campus life, we help you communicate what makes your education brand worth choosing.',
+      possibilities: [
+        {
+          num: '01',
+          title: 'Programs & Courses',
+          description: 'Make your courses and programs easier for prospective students and learners to understand.'
+        },
+        {
+          num: '02',
+          title: 'Educator & Faculty Profiles',
+          description: 'Introduce the educators and experts who make your institution and programs distinctive.'
+        },
+        {
+          num: '03',
+          title: 'Student Stories',
+          description: 'Share student experiences, achievements, and journeys in a clear and authentic way.'
+        },
+        {
+          num: '04',
+          title: 'Campus & Community',
+          description: 'Show the people, places, events, and experiences that bring your education community to life.'
+        },
+        {
+          num: '05',
+          title: 'Admissions & Awareness',
+          description: 'Communicate admissions information, important dates, programs, and opportunities clearly.'
+        },
+        {
+          num: '06',
+          title: 'Academic Stories & Achievements',
+          description: 'Share research, academic achievements, events, milestones, and the work happening across your institution.'
+        }
+      ]
+    }
   },
   consulting: {
     id: 'consulting',
     title: 'Consulting',
-    tagline: 'Win High-Value Clients & Build Market Authority',
+    tagline: 'Reach the Right Clients & Build Trust',
     landingHeadline: 'Consulting',
-    landingDescription: 'We help consultants and advisory firms build market authority, attract high-value clients, and scale their practice.',
+    landingDescription: 'We help consultants and advisory firms clearly communicate what they know, showcase their expertise, and reach the right people.',
     cardHeadline: 'Share Your Expertise. Build Your Presence.',
     cardDescription: 'Turn your knowledge, insights, and services into content that helps potential clients understand your value.',
     proofBadges: [
-      { label: 'Advisory', iconName: 'Briefcase' },
-      { label: 'Dealflow', iconName: 'Target' },
-      { label: 'Authority', iconName: 'ShieldCheck' },
-      { label: 'Valuation', iconName: 'TrendingUp' }
+      { label: 'Expertise', iconName: 'Briefcase' },
+      { label: 'Insights', iconName: 'Target' },
+      { label: 'Visibility', iconName: 'ShieldCheck' },
+      { label: 'Growth', iconName: 'TrendingUp' }
     ],
     imageUrl: '/industry-consulting.jpg',
     landingImageUrl: '/const2_image.png',
@@ -147,102 +204,210 @@ export const TAILORED_STRATEGIES: Record<string, TailoredStrategyConfig> = {
     industryId: 'healthcare',
     entityType: 'expert',
     badge: 'HEALTHCARE | EXPERT',
-    headline: 'Your Expertise. A Wider Reach.',
-    description: 'We create tailored strategies for doctors, surgeons, and medical specialists, so your knowledge reaches the patients and peers who need it most.',
+    headline: 'Your Expertise.\nA Wider Reach.',
+    description: 'We help doctors, specialists, and healthcare experts turn their knowledge into clear content and reach the people looking for it.',
     checklist: [
-      'Professional Medical & Specialist Branding',
-      'Patient Education & Preventive Care Content',
-      'Video Production (Simplified Clinical Explainers)',
-      'Ethical Social Media Channel Management',
-      'Targeted Ad Campaigns for High-Intent Consultations',
-      'Thought Leadership Articles & Clinical Publications'
+      'Doctor & Specialist Branding',
+      'Patient Education Content',
+      'Clinical Explainer Videos',
+      'Healthcare Social Media Content',
+      'Healthcare Advertising',
+      'Expert Articles & Healthcare Content'
     ],
     organicTag: 'Your Knowledge. More Impact.',
-    imageUrl: '/doc_expert.png'
+    imageUrl: '/doc_expert.png',
+    possibilitiesSection: {
+      eyebrow: 'HEALTHCARE CONTENT',
+      headline: 'Your expertise has stories worth sharing.',
+      description: 'Turn complex healthcare topics into clear, useful content people can understand.',
+      possibilities: [
+        {
+          num: '01',
+          title: 'PATIENT EDUCATION',
+          description: 'Make healthcare topics easier to understand.'
+        },
+        {
+          num: '02',
+          title: 'PROCEDURE & TREATMENT EXPLAINERS',
+          description: 'Explain procedures and treatments clearly.'
+        },
+        {
+          num: '03',
+          title: 'DOCTOR & SPECIALIST STORIES',
+          description: 'Introduce the people behind your expertise.'
+        },
+        {
+          num: '04',
+          title: 'PRACTICE & EXPERT CONTENT',
+          description: 'Share your work, ideas, experience, and perspective.'
+        }
+      ]
+    }
   },
   'healthcare-institution': {
     industryId: 'healthcare',
     entityType: 'institution',
-    badge: 'HEALTHCARE | INSTITUTION',
-    headline: 'Make Your Hospital Visible. Make Your Services Discoverable.',
-    description: 'We partner with hospitals, multi-specialty clinics, and health systems to elevate institutional reputation, highlight clinical departments, and drive patient acquisition.',
+    badge: 'HEALTHCARE | ORGANIZATION',
+    headline: 'Your Organization.\nClearly Seen. Clearly Understood.',
+    description: 'We help hospitals, clinics, and healthcare organizations showcase their services, people, and facilities — and help the right audiences find them.',
     checklist: [
-      'Hospital & Department Brand Architecture',
-      'Doctor Directory & Specialty Video Profiles',
-      'Multi-Channel Healthcare Consumer Campaigns',
-      'Google Business Profile & Local Patient Search Mastery',
-      'High-Converting Patient Appointment Portals',
-      'Accreditation & Community Impact Showcase'
+      'Hospital & Department Branding',
+      'Doctor & Specialist Profiles',
+      'Healthcare Awareness & Advertising',
+      'Google Business Profile & Local Search',
+      'Healthcare Websites & Appointment Journeys',
+      'Community & Institutional Content'
     ],
     organicTag: 'Scale Care. Inspire Trust.',
-    imageUrl: '/healthcare_inst.png'
+    imageUrl: '/healthcare_inst.png',
+    possibilitiesSection: {
+      eyebrow: 'HEALTHCARE STORIES',
+      headline: 'Your organization has stories worth telling.',
+      description: 'From services and specialists to facilities and community initiatives, we help you communicate what matters.',
+      possibilities: [
+        {
+          num: '01',
+          title: 'SERVICES & SPECIALTIES',
+          description: 'Help people understand what your organization offers.'
+        },
+        {
+          num: '02',
+          title: 'DOCTORS & EXPERTS',
+          description: 'Introduce the people behind your care.'
+        },
+        {
+          num: '03',
+          title: 'PATIENT EDUCATION',
+          description: 'Make important healthcare information easier to understand.'
+        },
+        {
+          num: '04',
+          title: 'FACILITIES & COMMUNITY',
+          description: 'Show your environment, achievements, and role in the community.'
+        }
+      ]
+    }
   },
   'education-expert': {
     industryId: 'education',
     entityType: 'expert',
     badge: 'EDUCATION | EXPERT',
-    headline: 'Inspire Learners. Multiply Your Voice.',
-    description: 'For professors, master educators, authors, and pedagogical leaders seeking to expand their intellectual influence and launch high-impact digital academies.',
+    headline: 'Share What You Know.\nReach More Learners.',
+    description: 'We help educators, authors, coaches, and subject experts turn what they know into clear content, useful learning experiences, and a stronger online presence.',
     checklist: [
-      'Academic & Scholar Personal Branding',
-      'Curriculum-to-Content Conversion Strategies',
-      'Micro-Lecture & Explainer Video Production',
-      'Academic LinkedIn & Substack Publishing Channels',
-      'Masterclass & Digital Course Launch Funnels',
-      'Keynote & Media Placement Strategy'
+      'Expert & Educator Branding',
+      'Turning Your Knowledge Into Content',
+      'Short Lessons & Explainer Videos',
+      'LinkedIn, Newsletter & Social Content',
+      'Masterclasses & Online Course Launches',
+      'Speaking, Interviews & Expert Content'
     ],
     organicTag: 'Ideas That Teach. Voices That Guide.',
-    imageUrl: '/edu_expert.png'
+    imageUrl: '/edu_expert.png',
+    possibilitiesSection: {
+      eyebrow: 'EDUCATION CONTENT',
+      headline: 'Your knowledge has stories worth sharing.',
+      description: 'Turn what you know into content, learning experiences, and ideas people can understand, remember, and learn from.',
+      possibilities: [
+        {
+          num: '01',
+          title: 'EXPERT CONTENT',
+          description: 'Turn your knowledge into useful articles, posts, newsletters, and other content.'
+        },
+        {
+          num: '02',
+          title: 'LESSONS & EXPLAINERS',
+          description: 'Break down difficult ideas into clear lessons and explainer videos.'
+        },
+        {
+          num: '03',
+          title: 'COURSES & MASTERCLASSES',
+          description: 'Turn your expertise into structured learning experiences.'
+        },
+        {
+          num: '04',
+          title: 'SPEAKING & EXPERT STORIES',
+          description: 'Share your ideas through talks, interviews, presentations, and expert content.'
+        }
+      ]
+    }
   },
   'education-institution': {
     industryId: 'education',
     entityType: 'institution',
-    badge: 'EDUCATION | INSTITUTION',
-    headline: 'Make Your Institution Stand Out. Reach the Right Students.',
-    description: 'For universities, colleges, K-12 academies, and edtech organizations looking to attract ambitious students, foster alumni giving, and lead higher-ed discourse.',
+    badge: 'EDUCATION | ORGANIZATION',
+    headline: 'Your Organization.\nClearly Seen. Clearly Understood.',
+    description: 'We help schools, universities, and education organizations showcase their programs, people, and campus — and help the right audiences find them.',
     checklist: [
-      'Student Recruitment & Enrollment Inbound Engines',
-      'Campus Culture & Experiential Video Showcase',
-      'Faculty Excellence & Groundbreaking Research Features',
-      'Program-Specific Digital Prospectuses',
-      'Targeted Open-Day Paid Media Campaigns',
-      'Alumni Engagement & Foundation Storytelling'
+      'Program & Course Content',
+      'Faculty & Expert Profiles',
+      'Campus & Student Experience Content',
+      'Admissions & Open Day Campaigns',
+      'Education Websites & Search',
+      'Academic, Alumni & Community Stories'
     ],
     organicTag: 'Brighter Minds. Stronger Future.',
-    imageUrl: '/institute_image.png'
+    imageUrl: '/institute_image.png',
+    possibilitiesSection: {
+      eyebrow: 'EDUCATION STORIES',
+      headline: 'Show what makes your organization worth choosing.',
+      description: 'From programs and faculty to campus life and student experiences, we help you communicate what matters.',
+      possibilities: [
+        {
+          num: '01',
+          title: 'PROGRAMS & COURSES',
+          description: 'Make what you offer easier to understand.'
+        },
+        {
+          num: '02',
+          title: 'FACULTY & EXPERTS',
+          description: 'Introduce the people behind your organization.'
+        },
+        {
+          num: '03',
+          title: 'CAMPUS & STUDENT LIFE',
+          description: 'Show the experience beyond the classroom.'
+        },
+        {
+          num: '04',
+          title: 'ACADEMIC & COMMUNITY STORIES',
+          description: 'Share achievements, events, research, and milestones.'
+        }
+      ]
+    }
   },
   'consulting-expert': {
     industryId: 'consulting',
     entityType: 'expert',
     badge: 'CONSULTING | EXPERT',
-    headline: 'Turn Expertise Into Authority. Build a Brand That Blooms.',
-    description: 'For consultants, founders, advisors, and ambitious professionals looking to position their expertise, build a credible digital presence, and attract high-value opportunities.',
+    headline: 'Share What You Know.\nReach the Right People.',
+    description: 'We help consultants, advisors, and independent experts clearly communicate what they know, showcase their work, and reach the right people.',
     checklist: [
-      'Strategic Brand Positioning & Expert Authority',
-      'Signature Frameworks, IP & Knowledge Productization',
-      'Executive Video Content & Insight-Led Storytelling',
-      'LinkedIn Thought Leadership & Personal Brand Content',
-      'Lead Generation & High-Value Client Acquisition',
-      'Industry Content, Whitepapers & Presentation Assets'
+      'Consultant & Expert Branding',
+      'Expert Articles & Insights',
+      'Video & Expert Content',
+      'LinkedIn & Social Content',
+      'Websites & Search Visibility',
+      'Presentations, Reports & Whitepapers'
     ],
-    organicTag: 'Strategic Clarity. Unmatched Authority.',
+    organicTag: 'Clear Expertise. Stronger Reach.',
     imageUrl: '/consulent_image.png'
   },
   'consulting-institution': {
     industryId: 'consulting',
     entityType: 'institution',
     badge: 'CONSULTING | INSTITUTION',
-    headline: 'Scale Practice Impact & Enterprise Reach.',
-    description: 'For consulting practices, advisory firms, and specialist agencies looking to outshine generic competitors, win RFP shortlists, and recruit premier tier-1 talent.',
+    headline: 'Showcase What You Do.\nReach the Right People.',
+    description: 'We help consulting firms clearly explain what they do, showcase their expertise, and make their work easier for the right people to find.',
     checklist: [
-      'Practice Area Architecture & Market Differentiation',
-      'Enterprise Case Study & Client ROI Storytelling',
-      'Partner & Principal Video Thought Leadership',
-      'Account-Based Marketing (ABM) Paid Ad Campaigns',
-      'Annual Industry Benchmark & Trend Reports',
-      'Talent Brand & Senior Consultant Recruitment'
+      'Consultant & Firm Branding',
+      'Case Studies & Client Stories',
+      'Expert & Team Videos',
+      'LinkedIn & Social Content',
+      'Websites & Search Visibility',
+      'Reports, Presentations & Industry Content'
     ],
-    organicTag: 'Advisory Prestige. Sustainable Growth.',
+    organicTag: 'Clear Expertise. Better Reach.',
     imageUrl: '/const_inst.png'
   }
 };

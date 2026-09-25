@@ -40,7 +40,7 @@ const INDUSTRY_APPLICATIONS: IndustryServiceApplication[] = [
     id: 'healthcare',
     title: 'Healthcare',
     audience: 'Doctors, Clinics & Hospitals',
-    simpleDescription: 'We help doctors build patient trust and grow clinic appointments.',
+    simpleDescription: 'Help people find your practice, understand your services, and build trust.',
     icon: <HeartPulse size={24} />,
     iconBg: 'var(--bg-peach)',
     iconColor: 'var(--color-coral)',
@@ -54,7 +54,7 @@ const INDUSTRY_APPLICATIONS: IndustryServiceApplication[] = [
     id: 'education',
     title: 'Education',
     audience: 'Schools, Universities & Educators',
-    simpleDescription: 'We help schools attract students and showcase academic programs.',
+    simpleDescription: 'Show what you offer, tell your story, and reach the right learners.',
     icon: <GraduationCap size={24} />,
     iconBg: 'var(--bg-lavender)',
     iconColor: 'var(--color-indigo)',
@@ -68,7 +68,7 @@ const INDUSTRY_APPLICATIONS: IndustryServiceApplication[] = [
     id: 'consulting',
     title: 'Consulting',
     audience: 'Advisors, Coaches & Advisory Firms',
-    simpleDescription: 'We help consultants win enterprise clients and build market authority.',
+    simpleDescription: 'Showcase your expertise, tell your story, and reach the right people.',
     icon: <Briefcase size={24} />,
     iconBg: '#FFF3E0',
     iconColor: '#C2410C',
@@ -105,7 +105,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
             </h1>
 
             <p className="hero-description" style={{ margin: '0 auto 28px', fontSize: '1.08rem', maxWidth: '640px', lineHeight: 1.6 }}>
-              A structured, three-stage growth engine designed for experts and institutions in Healthcare, Education, and Consulting.
+              Three simple steps to help your business bloom.
             </p>
             {/* 3-Step Connected Framework Cards */}
             <div className="framework-hero-row" style={{ marginBottom: '32px' }}>
@@ -117,7 +117,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   </div>
                 </div>
                 <h4 className="framework-hero-card-title">BUILD</h4>
-                <p className="framework-hero-card-sub">Web, SEO & Digital Foundation</p>
+                <p className="framework-hero-card-sub">Get found online.</p>
               </a>
 
               <div className="framework-hero-arrow" aria-hidden="true">
@@ -132,7 +132,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   </div>
                 </div>
                 <h4 className="framework-hero-card-title">CREATE</h4>
-                <p className="framework-hero-card-sub">Studio Media, Video & Editorial</p>
+                <p className="framework-hero-card-sub">Tell your story clearly.</p>
               </a>
 
               <div className="framework-hero-arrow" aria-hidden="true">
@@ -147,7 +147,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   </div>
                 </div>
                 <h4 className="framework-hero-card-title">PROMOTE</h4>
-                <p className="framework-hero-card-sub">Meta Ads, Google Ads & Collabs</p>
+                <p className="framework-hero-card-sub">Reach the right people.</p>
               </a>
             </div>
 
@@ -175,9 +175,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
         <div className="container">
           <div className="section-header-centered">
             <span className="eyebrow">OUR CORE CAPABILITIES</span>
-            <h2 style={{ fontSize: '2.4rem' }}>The Three Pillars of sBLOOM</h2>
+            <h2 style={{ fontSize: '2.4rem' }}>How We Help You Grow</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              From initial digital foundation to studio production and targeted audience growth.
+              From getting found to telling your story and reaching the right people.
             </p>
           </div>
 
@@ -197,12 +197,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                   ? 'var(--color-coral)'
                   : 'var(--color-indigo)';
 
-              const strategicOutcome =
-                pillar.title === 'BUILD'
-                  ? 'Establishes verified search visibility and credibility so clients find authoritative information directly from you.'
-                  : pillar.title === 'CREATE'
-                  ? 'Turns complex ideas into high-quality studio media, video, and articles that build enduring authority.'
-                  : 'Drives qualified leads and appointments through targeted Meta Ads, Google Ads, and influencer collaborations.';
+
 
               return (
                 <div
@@ -227,9 +222,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     <h3 className="pillar-clean-title">{pillar.title}</h3>
                     <p className="pillar-clean-desc">{pillar.subtitle}</p>
 
-                    <div className="pillar-clean-outcome">
-                      <span><strong>Key Outcome:</strong> {strategicOutcome}</span>
-                    </div>
+
                   </div>
 
                   {/* Right: Deliverables List */}
@@ -255,9 +248,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <section className="section bg-peach-section">
         <div className="container">
           <div className="section-header-centered">
-            <h2 style={{ fontSize: '2.4rem' }}>How We Apply Services by Industry</h2>
+            <h2 style={{ fontSize: '2.4rem' }}>How We Help Your Industry</h2>
             <p style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-              How Build, Create, and Promote adapt directly to your field — clear, proven, and compliant.
+              See how BUILD, CREATE, and PROMOTE come together for your industry.
             </p>
           </div>
 
@@ -306,12 +299,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       {/* Bottom Conversion CTA */}
       <section className="section bg-ivory-section" style={{ textAlign: 'center', padding: '90px 0' }}>
         <div className="container" style={{ maxWidth: '680px' }}>
-          <span className="eyebrow">READY TO GROW?</span>
+          <span className="eyebrow">READY TO BLOOM?</span>
           <h2 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.2rem)', marginBottom: '16px' }}>
-            Let's Blueprint Your Strategy
+            Let's Build Your Strategy
           </h2>
           <p style={{ fontSize: '1.12rem', color: 'var(--text-secondary)', marginBottom: '32px' }}>
-            Share your practice or institution goals with our directors and receive an actionable growth outline.
+            Tell us what you want to achieve, and we'll help you find the right path.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
             <GenerateButton

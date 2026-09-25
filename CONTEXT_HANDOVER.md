@@ -18,11 +18,10 @@ The platform routes users through two primary funnels starting from the Homepage
 ### Journey A: The Client Route
 Targeting individual Experts and Institutions/Organizations in Healthcare, Education, and Consulting.
 
-1. **Home / Gateway:** User selects "I’m an Expert / Institution looking to grow"
-2. **Industry Selection (`/industries`):** User chooses Healthcare, Education, or Consulting.
-3. **Industry Landing (`/industries/:industry`):** Contextual page for the chosen industry.
-4. **Entity Selection (`/industries/:industry/entity`):** User selects either "I’m an Expert" or "We’re an Institution".
-5. **Tailored Strategy (`/industries/:industry/:entity`):** Displays a highly contextualized strategy with capabilities, proof, and a final CTA to start a conversation.
+1. **Home / Gateway:** User selects "I’m an Expert / Institution looking to grow" and chooses their industry.
+2. **Industry Landing (`/industries/:industry`):** Contextual page for the chosen industry.
+3. **Entity Selection (`/industries/:industry/entity`):** User selects either "I’m an Expert" or "We’re an Institution".
+4. **Tailored Strategy (`/industries/:industry/:entity`):** Displays a highly contextualized strategy with capabilities, proof, and a final CTA to start a conversation.
 
 ### Journey B: The Partner Route
 Targeting technical and creative freelancers (editors, videographers, designers, content writers).
@@ -42,7 +41,7 @@ The architecture is highly component-driven to avoid duplicating pages for diffe
 **Directory Overview:**
 - `/src/pages/`: Contains all main route components.
   - `HomePage.tsx`: The main gateway.
-  - `IndustrySelectionPage.tsx`, `IndustryLandingPage.tsx`: Dynamic industry routing.
+  - `IndustryLandingPage.tsx`: Dynamic industry routing.
   - `EntitySelectionPage.tsx`, `TailoredStrategyPage.tsx`: Dynamic entity-based content routing.
   - `PartnerWorkspacePage.tsx`, `PartnerApplyPage.tsx`: The freelancer workspace funnel.
   - `AboutPage.tsx`, `ServicesPage.tsx`, `ContactPage.tsx`: Standard informational pages.

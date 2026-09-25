@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
               />
             </Link>
             <p className="footer-brand-bio">
-              Industry-specific marketing and growth partner for Healthcare, Education and Consulting. We build authoritative presence, craft compelling communication, and drive measurable practice growth.
+              Industry-specific marketing and growth partner for Healthcare, Education and Consulting. We help businesses get found, tell their story, and reach the right people.
             </p>
             <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px' }}>
               <GenerateButton
