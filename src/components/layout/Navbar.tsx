@@ -369,7 +369,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               onClick={onOpenConsultation}
               className="btn"
               id="header-cta-talk"
-              style={{ borderRadius: '9999px', padding: '10px 24px', backgroundColor: '#2563EB', color: '#FFF', textTransform: 'uppercase', letterSpacing: '0.02em', fontSize: '0.85rem' }}
+              style={{ borderRadius: '9999px', padding: '10px 24px', backgroundColor: 'var(--color-indigo)', color: '#FFF', textTransform: 'uppercase', letterSpacing: '0.02em', fontSize: '0.85rem' }}
             >
               <span>GET STARTED</span>
             </button>
@@ -468,7 +468,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                     onOpenConsultation();
                   }}
                   className="btn btn-indigo"
-                  style={{ width: '100%', justifyContent: 'center', borderRadius: '9999px', padding: '12px 24px', backgroundColor: '#2563EB', color: '#FFF', textTransform: 'uppercase' }}
+                  style={{ width: '100%', justifyContent: 'center', borderRadius: '9999px', padding: '12px 24px', backgroundColor: 'var(--color-indigo)', color: '#FFF', textTransform: 'uppercase' }}
                 >
                   <span>GET STARTED</span>
                 </button>

@@ -20,8 +20,8 @@ Targeting individual Experts and Institutions/Organizations in Healthcare, Educa
 
 1. **Home / Gateway:** User selects "I’m an Expert / Institution looking to grow" and chooses their industry.
 2. **Industry Landing (`/industries/:industry`):** Contextual page for the chosen industry.
-3. **Entity Selection (`/industries/:industry/entity`):** User selects either "I’m an Expert" or "We’re an Institution".
-4. **Tailored Strategy (`/industries/:industry/:entity`):** Displays a highly contextualized strategy with capabilities, proof, and a final CTA to start a conversation.
+3. **Entity Selection (`/industries/:industry/select`):** User selects either "I’m an Expert" or "We’re an Institution".
+4. **Tailored Strategy (`/industries/:industry/:entity`):** Displays a highly contextualized strategy with capabilities, proof, and a final CTA (Consultation Modal) to start a conversation.
 
 ### Journey B: The Partner Route
 Targeting technical and creative freelancers (editors, videographers, designers, content writers).
@@ -35,6 +35,7 @@ Targeting technical and creative freelancers (editors, videographers, designers,
 ## 3. Codebase Structure & Technology Stack
 
 **Tech Stack:** React (TypeScript) + Vite + CSS (Vanilla/Custom Design System)
+**Key Libraries:** React Router (Routing), Framer Motion (Animations), Lucide React / React Icons (Icons)
 
 The architecture is highly component-driven to avoid duplicating pages for different industries and entities. Data configurations power the dynamic rendering of pages.
 
@@ -43,9 +44,9 @@ The architecture is highly component-driven to avoid duplicating pages for diffe
   - `HomePage.tsx`: The main gateway.
   - `IndustryLandingPage.tsx`: Dynamic industry routing.
   - `EntitySelectionPage.tsx`, `TailoredStrategyPage.tsx`: Dynamic entity-based content routing.
-  - `PartnerWorkspacePage.tsx`, `PartnerApplyPage.tsx`: The freelancer workspace funnel.
+  - `PartnerWorkspacePage.tsx`, `PartnerApplyPage.tsx`: The freelancer workspace funnel (also mapped to `/partner-workspace`).
   - `AboutPage.tsx`, `ServicesPage.tsx`, `ContactPage.tsx`: Standard informational pages.
-- `/src/components/`: Reusable UI components (Hero Sections, Cards, Navigation, Footer).
+- `/src/components/`: Reusable UI components (Hero Sections, Cards, Navigation, Footer). Includes global features like `ConsultationModal`.
 - `/src/data/`: Centralized configuration objects that power dynamic pages (e.g., industry text, capabilities).
 - `/src/index.css`: Contains the global design tokens, typography (serif/sans-serif mix), color variables (off-white, navy, terracotta, lavender, muted blue), and responsive grid setup.
 

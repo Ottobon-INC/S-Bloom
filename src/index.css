@@ -588,15 +588,16 @@ img {
 
 /* Global Navbar */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 16px;
-  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
   background-color: #FFFFFF;
   border-radius: 9999px;
   box-shadow: 0 4px 20px rgba(35, 28, 80, 0.08);
   width: calc(100% - 40px);
   max-width: var(--max-width);
-  margin: 16px auto 0;
 }
 
 .nav-container {

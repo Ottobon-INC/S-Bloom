@@ -16,7 +16,7 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="contact-page section bg-hero-gradient organic-blob-wrapper" style={{ minHeight: '85vh' }}>
+    <div className="contact-page section bg-hero-gradient organic-blob-wrapper" style={{ minHeight: '100vh', paddingTop: '80px' }}>
       <div className="organic-shape-glow glow-peach" style={{ width: '440px', height: '440px', top: '0', right: '5%' }} />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
